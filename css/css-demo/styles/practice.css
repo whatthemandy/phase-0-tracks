@@ -16,11 +16,11 @@
 #contact-info a {
   color: #ff5050;
 }
-​
+
 #contact-info a:hover {
   color: black;
 }
-​
+
 ul li {
   list-style-type: circle;
 }
