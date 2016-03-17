@@ -32,17 +32,18 @@ figcaption {
 }
 
 body {
-  width: 960px;
+  max-width: 960px;
 }
 
 #external-links {
-  width: 200px;
+  width: 20%;
   display: inline-block;
   vertical-align: top;
+  padding: 10px;
+  min-width: 200px;
 }
 
 main {
-  width: 756px;
+  width: 60%;
   display: inline-block;
-
 }
