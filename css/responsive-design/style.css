@@ -33,6 +33,7 @@ figcaption {
 
 body {
   max-width: 960px;
+  margin: auto;
 }
 
 #external-links {
@@ -47,3 +48,17 @@ main {
   width: 60%;
   display: inline-block;
 }
+
+@media screen and (max-width: 500px) {
+  body {
+    background-color: hotpink;
+  }
+  #external-links {
+    font-size: 10px;
+    width: 100%;
+  }
+  h1 {
+    font-size: 20px;
+  }
+}
+
