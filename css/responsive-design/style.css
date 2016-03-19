@@ -47,18 +47,23 @@ body {
 main {
   width: 60%;
   display: inline-block;
+  vertical-align: top;
+  margin: 10px;
 }
 
 @media screen and (max-width: 500px) {
   body {
     background-color: hotpink;
   }
+  #external-links h1 {
+    font-size: 20px;
+  }
   #external-links {
-    font-size: 10px;
+    font-size: 15px;
     width: 100%;
   }
   h1 {
-    font-size: 20px;
+    font-size: 25px;
   }
 }
 
