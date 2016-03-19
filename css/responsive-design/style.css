@@ -52,9 +52,6 @@ main {
 }
 
 @media screen and (max-width: 500px) {
-  body {
-    background-color: hotpink;
-  }
   #external-links h1 {
     font-size: 20px;
   }
@@ -67,3 +64,11 @@ main {
   }
 }
 
+
+/* Media Query example from assignment:
+
+@media screen and (max-width: 500px) {
+  body {
+    background-color: hotpink;
+  }
+} */
