@@ -51,7 +51,7 @@ main {
   margin: 10px;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
   #external-links h1 {
     font-size: 20px;
   }
@@ -60,9 +60,27 @@ main {
     width: 100%;
   }
   h1 {
-    font-size: 25px;
+    font-size: 20px;
   }
 }
+
+@media screen and (max-width: 250px) {
+  #external-links h1 {
+    font-size: 15px;
+  }
+  #external-links {
+    font-size: 10px;
+    width: 100%;
+  }
+  h1 {
+    font-size: 15px;
+  }
+  main {
+    font-size: 13px;
+    width: 100%;
+  }
+}
+
 
 
 /* Media Query example from assignment:
