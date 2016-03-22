@@ -25,6 +25,9 @@ puts "How many years old do you estimate the hamster is?"
   age = nil
   end
 
+# I think this would be good to convert to a float, but when I use age=age.to_f, a blank answer shows as 0.0 instead of nil.
+
+
 puts "Hamster Details:"
 puts "Name: #{name}."
 puts "Noise-level: #{noisy}/10."
