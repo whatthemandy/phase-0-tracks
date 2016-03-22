@@ -8,8 +8,12 @@ puts "How noisy is the hamster on a scale of 1-10?"
 puts "What color is the hamster's fur?"
   color = gets.chomp
 
-puts "Is the hamster a good candidate for adoption? (true/false)"
+puts "True or False?: The hamster a good candidate for adoption."
   adoption = gets.chomp
+
+  if adoption=="true"; true
+    elsif adoption=="false"; false
+    end
 
 puts "How many years old do you estimate the hamster is?"
   age = gets.chomp
