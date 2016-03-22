@@ -11,17 +11,20 @@ puts "What color is the hamster's fur?"
 puts "True or False?: The hamster a good candidate for adoption."
   adoption = gets.chomp
 
-  if adoption=="true"; true
-    elsif adoption=="false"; false
-    end
+  if input=="true"
+      adoption=true
+  elsif input=="false"
+      adoption=false
+  else input=nil
+  end
 
 puts "How many years old do you estimate the hamster is?"
   age = gets.chomp
   age.to_i
 
-if age == " "
-age = nil
-end
+  if age == " "
+  age = nil
+  end
 
 
 puts "The hamster's name is: #{name}."
