@@ -14,7 +14,7 @@ def encrypt(string)
     end
     index += 1
   end
-  #p string - when I comment this out the code stops working and I don't know why
+  #p string
 end
 
 encrypt("abc")
