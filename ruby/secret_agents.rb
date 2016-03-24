@@ -1,7 +1,7 @@
-# - get a string
 # - Write a method with a loop inside of it
-# - Loop through each letter of the string, using .next for each one
-# - At the end, print the final string#
+# - Loop through each letter of the string, use .next to change each one to the following letter
+# - Add one to the index to continue to the next letter until you hit the last letter of the string
+# - Print the final string
 
 
 def encrypt(string)
@@ -10,20 +10,18 @@ def encrypt(string)
       string[index] = string[index].next
       index += 1
     end
-    string
-    #puts string
+    puts string
 end
 
 encrypt("abc")
 
 
-# - Get a string
-# - write a method with a loop inside of it
+# - Write a method with a loop inside of it
 # - Loop through each letter of the string
-# - Match each letter to the same letter in the alphabet
-# - get the index number for that letter in the alphabet, and and subtract one
+# - Match each letter to the same letter in the alphabet string
+# - Get the index number for that letter in the alphabet, and subtract one
 # - Match the new index number to the corresponding letter
-# - At the end, print the final string
+# - Print the final string
 
 def decrypt(string)
   index = 0
@@ -33,7 +31,7 @@ def decrypt(string)
       index += 1
     end
     string
-    #puts string
+    puts string
 end
 
 decrypt("bcd")
