@@ -13,7 +13,7 @@ def encrypt(string)
     end
     index += 1
   end
-  #return string
+  #p string
 end
 
 encrypt("abc")
@@ -28,14 +28,12 @@ encrypt("zed")
 
 def decrypt(string)
   index = 0
-  alphabet = ('a'..'z').to_a
+  alphabet = ("a".."z").to_a
   while index < string.length
-    if (alphabet).include?(string[index])
-      string[index] = alphabet[alphabet.index(string[index])-1]
-    end
+    string[index] = alphabet[alphabet.index(string[index])-1]
     index += 1
-  end
-  #return string
+    end
+  #p string
 end
 
 decrypt("bcd")
