@@ -6,11 +6,15 @@
 
 def encrypt(string)
   index = 0
-    while index < string.length
+  while index < string.length
+    if string[index] == "z"
+      string[index] = "a"
+    elsif ('a'..'y').include?(string[index])
       string[index] = string[index].next
-      index += 1
     end
-    puts string
+    index += 1
+  end
+  return string
 end
 
 encrypt("abc")
