@@ -46,7 +46,7 @@ decrypt("afe")
 
 #p decrypt(encrypt("The duck flies at midnight"))
 
-#This nested call did not work at first because capital letters and spaces were not accounted for.  Now I have added conditional statements that specifies it should run the method for letters in the alphabet, so that when a character that is not a letter in the (lowercase) alphabet, it will simply be skipped and not break the code.
+#This nested call did not work at first because capital letters and spaces were not accounted for.  Now I have added conditional statements that specifies what it should do with spaces, and a rule to downcase each letter so that uppercase letters don't break it.  This does not re-caitalize the first letter, but I understand how this method works better than the previous method I had committed, so I am choosing to use this instead.
 
 #Ask user whether they would like to encrypt or decrypt a password and store their answer in a variable (called method)
 #Ask user to enter a password and store it in a variable (called password)
