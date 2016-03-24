@@ -1,8 +1,7 @@
-# - Write a method with a loop inside of it
-# - Loop through each letter of the string, use .next to change each one to the following letter
-# - Add one to the index to continue to the next letter until you hit the last letter of the string
-# - Print the final string
-
+# Write a method with a loop inside of it
+# Loop through each letter of the string, use .next to change each one to the following letter
+# Add one to the index to continue to the next letter until you hit the last letter of the string
+# Print the final string
 
 def encrypt(string)
   index = 0
@@ -14,18 +13,18 @@ def encrypt(string)
     end
     index += 1
   end
-  return string
+  #return string
 end
 
 encrypt("abc")
+encrypt("zed")
 
-
-# - Write a method with a loop inside of it
-# - Loop through each letter of the string
-# - Match each letter to the same letter in the alphabet string
-# - Get the index number for that letter in the alphabet, and subtract one
-# - Match the new index number to the corresponding letter
-# - Print the final string
+# Write a method with a loop inside of it
+# Loop through each letter of the string
+# Match each letter to the same letter in the alphabet string
+# Get the index number for that letter in the alphabet, and subtract one
+# Match the new index number to the corresponding letter
+# Print the final string
 
 def decrypt(string)
   index = 0
@@ -36,13 +35,13 @@ def decrypt(string)
     end
     index += 1
   end
-  string
+  #return string
 end
 
 decrypt("bcd")
+decrypt("afe")
 
-decrypt(encrypt("The duck flies at midnight"))
-
+#p decrypt(encrypt("The duck flies at midnight"))
 
 puts "Would you like to decrypt or encrypt a password?"
 method = gets.chomp
