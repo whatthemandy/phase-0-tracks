@@ -29,13 +29,14 @@ encrypt("abc")
 
 def decrypt(string)
   index = 0
-  alphabet = "abcdefghijklmnopqrstuvwxyz"
-    while index < string.length
+  alphabet = ('a'..'z').to_a
+  while index < string.length
+    if (alphabet).include?(string[index])
       string[index] = alphabet[alphabet.index(string[index])-1]
-      index += 1
     end
-    string
-    puts string
+    index += 1
+  end
+  string
 end
 
 decrypt("bcd")
