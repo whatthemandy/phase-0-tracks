@@ -8,7 +8,7 @@ def encrypt(string)
   while index < string.length
     if string[index] == "z"
       string[index] = "a"
-    else
+    elsif ('a'..'y').include?(string[index])
       string[index] = string[index].next
     end
     index += 1
@@ -28,11 +28,13 @@ encrypt("zed")
 
 def decrypt(string)
   index = 0
-  alphabet = ("a".."z").to_a
+  alphabet = ('a'..'z').to_a
   while index < string.length
-    string[index] = alphabet[alphabet.index(string[index])-1]
-    index += 1
+    if (alphabet).include?(string[index])
+      string[index] = alphabet[alphabet.index(string[index])-1]
     end
+    index += 1
+  end
   #p string
 end
 
