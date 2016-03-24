@@ -8,8 +8,9 @@ def encrypt(string)
   while index < string.length
     if string[index] == "z"
       string[index] = "a"
-    elsif ('a'..'y').include?(string[index])
-      string[index] = string[index].next
+    elsif string[index] == " "
+      string[index] = " "
+    else string[index] = string[index].next
     end
     index += 1
   end
@@ -30,8 +31,10 @@ def decrypt(string)
   index = 0
   alphabet = ('a'..'z').to_a
   while index < string.length
-    if (alphabet).include?(string[index])
-      string[index] = alphabet[alphabet.index(string[index])-1]
+    if string[index] == " "
+      string[index] = " "
+    else
+      string[index] = alphabet[alphabet.index(string[index].downcase)-1]
     end
     index += 1
   end
@@ -45,20 +48,22 @@ decrypt("afe")
 
 #This nested call did not work at first because capital letters and spaces were not accounted for.  Now I have added conditional statements that specifies it should run the method for letters in the alphabet, so that when a character that is not a letter in the (lowercase) alphabet, it will simply be skipped and not break the code.
 
-#Pseudocode the next steps here...
+#Ask user whether they would like to encrypt or decrypt a password and store their answer in a variable (called method)
+#Ask user to enter a password and store it in a variable (called password)
+#Create if/else that runs whichever method the user prefers, and print their encrypted or decrypted password.
 
 puts "Would you like to decrypt or encrypt a password?"
 method = gets.chomp
 
 puts "Enter a password."
-string = gets.chomp
+password = gets.chomp
 
 if method == "decrypt" || method == "d"
-  decrypt(string)
+  decrypt(password)
 elsif method == "encrypt" || method == "e"
-  encrypt(string)
+  encrypt(password)
 else
   puts "Try again"
 end
 
-puts string
+p password
