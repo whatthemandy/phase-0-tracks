@@ -43,6 +43,8 @@ decrypt("afe")
 
 #p decrypt(encrypt("The duck flies at midnight"))
 
+#This nested call did not work at first because capital letters and spaces were not accounted for.  Now I have added conditional statements that specifies it should run the method for letters in the alphabet, so that when a character that is not a letter in the (lowercase) alphabet, it will simply be skipped and not break the code.
+
 puts "Would you like to decrypt or encrypt a password?"
 method = gets.chomp
 
