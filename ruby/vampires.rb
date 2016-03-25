@@ -7,7 +7,7 @@ until number_of_employees == 0
   puts "(#{number_of_employees} remaining) What is your name?"
   name = gets.chomp
 
-  puts "How old are you?"
+  puts "How old will you be turning this year?"
   num = gets.chomp
   num = num.to_i
 
@@ -18,7 +18,7 @@ until number_of_employees == 0
     if (2016-year)==num
       correct_age=true
     else
-      correct_age=false #&& incorrect_age=true
+      correct_age=false #&& incorrect_age=true (hoped this would work but it didn't)
     end
 
     if (2016-year)==num
@@ -33,7 +33,7 @@ until number_of_employees == 0
     if input=="yes" || input=="y"
         likes_garlic=true
     else
-        likes_garlic=false #&& hates_garlic=true
+        likes_garlic=false #&& hates_garlic=true (hoped this would work but it didn't)
     end
 
     if input=="yes" || input=="y"
@@ -48,7 +48,7 @@ until number_of_employees == 0
     if input=="yes" || input=="y"
         wants_insurance=true
     else
-        wants_insurance=false #&& waives_insurance==true
+        wants_insurance=false #&& waives_insurance==true (hoped this would work but it didn't)
     end
 
     if input=="yes" || input=="y"
