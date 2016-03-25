@@ -1,11 +1,5 @@
 puts "What is your name?"
-input = gets.chomp
-
-  if input=="Drake Cula" || input=="Tu Fang"
-      reg_name=false
-  else
-      reg_name=true
-  end
+name = gets.chomp
 
 puts "How old are you?"
 num = gets.chomp
@@ -75,3 +69,10 @@ else
   puts "CHILLAX."
 end
 
+if name=="Drake Cula"
+  puts "Definitely a vampire."
+elsif name=="Tu Fang"
+  puts "Definitely a vampire."
+else
+  puts "NO MORE FEARS."
+end
