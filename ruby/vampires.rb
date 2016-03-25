@@ -80,13 +80,12 @@ end
 puts "Name any allergies one at a time. When finished, type 'done'."
 allergy = gets.chomp
 
-unless allergy == "done"
-
+until allergy == "done"
   puts "Any more?"
   allergy = gets.chomp
 
-    if allergy == "sunshine"
-      puts "Probably a vampire."
-    end
-
+  if allergy=="sunshine"
+    puts "Probably a vampire."
+    break
   end
+end
