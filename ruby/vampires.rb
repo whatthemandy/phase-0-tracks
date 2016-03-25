@@ -57,7 +57,7 @@ until number_of_employees == 0
         waives_insurance=true
     end
 
-    puts "Name any allergies one at a time. When finished, type 'done'."
+  puts "Name any allergies one at a time. When finished, type 'done'."
   allergy = gets.chomp
 
   until allergy == "done"
@@ -71,9 +71,11 @@ until number_of_employees == 0
     end
   end
 
+  #it looks like the allergy break function only works when "sunshine" is not given as the first answer to the allergy question...
+
     if allergy != "sunshine"
 
-      if name=="Drake Cula"
+    if name=="Drake Cula"
       puts "Definitely a vampire."
     elsif name=="Tu Fang"
       puts "Definitely a vampire."
