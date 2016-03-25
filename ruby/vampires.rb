@@ -56,3 +56,9 @@ input = gets.chomp
   else
       waives_insurance=true
   end
+
+if correct_age && (likes_garlic || wants_insurance)
+  puts "Probably not a vampire."
+else
+  puts "VAMPIRE ALERT!"
+end
