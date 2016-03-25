@@ -72,19 +72,21 @@ until number_of_employees == 0
 
     if allergy != "sunshine"
 
-    if name=="Drake Cula"
-      puts "Definitely a vampire."
-    elsif name=="Tu Fang"
-      puts "Definitely a vampire."
-    elsif correct_age && (likes_garlic || wants_insurance)
-      puts "Probably not a vampire."
-    elsif incorrect_age && (hates_garlic && waives_insurance)
-      puts "Almost certainly a vampire."
-     elsif incorrect_age && (hates_garlic || waives_insurance)
-      puts "Probably a vampire."
-    else
-      puts "Results inconclusive."
+      if name=="Drake Cula"
+        puts "Definitely a vampire."
+      elsif name=="Tu Fang"
+        puts "Definitely a vampire."
+      elsif correct_age && (likes_garlic || wants_insurance)
+        puts "Probably not a vampire."
+      elsif incorrect_age && (hates_garlic && waives_insurance)
+        puts "Almost certainly a vampire."
+       elsif incorrect_age && (hates_garlic || waives_insurance)
+        puts "Probably a vampire."
+      else
+        puts "Results inconclusive."
+      end
+      number_of_employees -= 1
     end
-    number_of_employees -= 1
-  end
 end
+
+puts "Actually, never mind! What do these questions have to do with anything? Let's all be friends."
