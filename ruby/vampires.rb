@@ -19,7 +19,7 @@ end
 age
 
 puts "Our company cafeteria serves garlic bread. Should we order some for you?"
-garlic = gets.chomp
+input = gets.chomp
 
   if input=="yes" || input=="y"
       garlic=true
@@ -28,13 +28,10 @@ garlic = gets.chomp
   end
 
 puts "Would you like to enroll in the company’s health insurance?"
-insurance = gets.chomp
+input = gets.chomp
 
   if input=="yes" || input=="y"
       insurance=true
   else
       insurance=false
   end
-
-
-
