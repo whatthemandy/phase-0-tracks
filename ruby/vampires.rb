@@ -68,3 +68,10 @@ if incorrect_age && (hates_garlic || waives_insurance)
 else
   puts "NO WORRIES, GUYS."
 end
+
+if incorrect_age && (hates_garlic && waives_insurance)
+  puts "Almost certainly a vampire."
+else
+  puts "CHILLAX."
+end
+
