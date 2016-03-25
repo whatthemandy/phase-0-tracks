@@ -51,28 +51,16 @@ input = gets.chomp
       waives_insurance=true
   end
 
-if correct_age && (likes_garlic || wants_insurance)
-  puts "Probably not a vampire."
-else
-  puts "VAMPIRE ALERT!"
-end
-
-if incorrect_age && (hates_garlic || waives_insurance)
-  puts "Probably a vampire."
-else
-  puts "NO WORRIES, GUYS."
-end
-
-if incorrect_age && (hates_garlic && waives_insurance)
-  puts "Almost certainly a vampire."
-else
-  puts "CHILLAX."
-end
-
 if name=="Drake Cula"
   puts "Definitely a vampire."
 elsif name=="Tu Fang"
   puts "Definitely a vampire."
+elsif correct_age && (likes_garlic || wants_insurance)
+  puts "Probably not a vampire."
+elsif incorrect_age && (hates_garlic && waives_insurance)
+  puts "Almost certainly a vampire."
+ elsif incorrect_age && (hates_garlic || waives_insurance)
+  puts "Probably a vampire."
 else
-  puts "NO MORE FEARS."
+  puts "Results inconclusive."
 end
