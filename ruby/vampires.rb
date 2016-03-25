@@ -2,7 +2,8 @@ puts "What is your name?"
 name = gets.chomp
 
 puts "How old are you?"
-age = gets.chomp
+num = gets.chomp
+num = num.to_i
 
 puts "What year were you born?"
 year = gets.chomp
@@ -10,9 +11,20 @@ year = gets.chomp
 puts "Our company cafeteria serves garlic bread. Should we order some for you?"
 garlic = gets.chomp
 
+  if input=="yes" || input=="y"
+      garlic=true
+  else
+      garlic=false
+  end
+
 puts "Would you like to enroll in the company’s health insurance?"
 insurance = gets.chomp
 
+  if input=="yes" || input=="y"
+      insurance=true
+  else
+      insurance=false
+  end
 
 
 
