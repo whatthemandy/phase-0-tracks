@@ -1,6 +1,12 @@
 puts "What is your name?"
 name = gets.chomp
 
+  if input=="Drake Cula" || input=="Tu Fang"
+      reg_name=false
+  else
+      reg_name=true
+  end
+
 def age
  puts "How old are you?"
  num = gets.chomp
