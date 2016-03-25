@@ -1,0 +1,11 @@
+How to use an elevator:
+
+Read sign explaining what is on each floor
+Decide which floor you want to go to
+Enter elevator when it opens
+Navigate to panel with buttons
+Push button corresponding to the floor you want to go to
+Wait until doors close and reopen on the floor you chose
+Exit elevator
+
+
