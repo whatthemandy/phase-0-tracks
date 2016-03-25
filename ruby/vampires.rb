@@ -7,22 +7,19 @@ name = gets.chomp
       reg_name=true
   end
 
-def age
- puts "How old are you?"
- num = gets.chomp
- num = num.to_i
+puts "How old are you?"
+num = gets.chomp
+num = num.to_i
 
- puts "What year were you born?"
- year = gets.chomp
- year = year.to_i
+puts "What year were you born?"
+year = gets.chomp
+year = year.to_i
 
   if (2016-year)==num
-    false
-  else true
+    correct_age=true
+  else
+    correct_age=false
   end
-end
-
-age
 
 puts "Our company cafeteria serves garlic bread. Should we order some for you?"
 input = gets.chomp
