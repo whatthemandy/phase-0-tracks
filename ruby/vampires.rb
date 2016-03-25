@@ -61,17 +61,14 @@ until number_of_employees == 0
   allergy = gets.chomp
 
   until allergy == "done"
-    puts "Any more?"
-    allergy = gets.chomp
-
     if allergy=="sunshine"
       number_of_employees -= 1
       puts "Probably a vampire."
       break
     end
+    puts "Any more?"
+    allergy = gets.chomp
   end
-
-  #it looks like the allergy break function only works when "sunshine" is not given as the first answer to the allergy question...
 
     if allergy != "sunshine"
 
