@@ -4,7 +4,7 @@ number_of_employees = number_of_employees.to_i
 
 until number_of_employees == 0
 
-  puts "What is your name?"
+  puts "#{number_of_employees}. What is your name?"
   name = gets.chomp
 
   puts "How old are you?"
@@ -57,35 +57,34 @@ until number_of_employees == 0
         waives_insurance=true
     end
 
-  if name=="Drake Cula"
-    puts "Definitely a vampire."
-  elsif name=="Tu Fang"
-    puts "Definitely a vampire."
-  elsif correct_age && (likes_garlic || wants_insurance)
-    puts "Probably not a vampire."
-  elsif incorrect_age && (hates_garlic && waives_insurance)
-    puts "Almost certainly a vampire."
-   elsif incorrect_age && (hates_garlic || waives_insurance)
-    puts "Probably a vampire."
-  else
-    puts "Results inconclusive."
-  end
-
-  number_of_employees -= 1
-
-end
-
-
-
-puts "Name any allergies one at a time. When finished, type 'done'."
-allergy = gets.chomp
-
-until allergy == "done"
-  puts "Any more?"
+    puts "Name any allergies one at a time. When finished, type 'done'."
   allergy = gets.chomp
 
-  if allergy=="sunshine"
-    puts "Probably a vampire."
-    break
+  until allergy == "done"
+    puts "Any more?"
+    allergy = gets.chomp
+
+    if allergy=="sunshine"
+      puts "Probably a vampire."
+      break
+    end
+    end
+
+    if allergy != "sunshine"
+
+      if name=="Drake Cula"
+      puts "Definitely a vampire."
+    elsif name=="Tu Fang"
+      puts "Definitely a vampire."
+    elsif correct_age && (likes_garlic || wants_insurance)
+      puts "Probably not a vampire."
+    elsif incorrect_age && (hates_garlic && waives_insurance)
+      puts "Almost certainly a vampire."
+     elsif incorrect_age && (hates_garlic || waives_insurance)
+      puts "Probably a vampire."
+    else
+      puts "Results inconclusive."
+    end
+    number_of_employees -= 1
   end
 end
