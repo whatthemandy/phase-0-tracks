@@ -4,7 +4,7 @@ number_of_employees = number_of_employees.to_i
 
 until number_of_employees == 0
 
-  puts "#{number_of_employees}. What is your name?"
+  puts "(#{number_of_employees} remaining) What is your name?"
   name = gets.chomp
 
   puts "How old are you?"
@@ -65,10 +65,11 @@ until number_of_employees == 0
     allergy = gets.chomp
 
     if allergy=="sunshine"
+      number_of_employees -= 1
       puts "Probably a vampire."
       break
     end
-    end
+  end
 
     if allergy != "sunshine"
 
