@@ -62,3 +62,9 @@ if correct_age && (likes_garlic || wants_insurance)
 else
   puts "VAMPIRE ALERT!"
 end
+
+if incorrect_age && (hates_garlic || waives_insurance)
+  puts "Probably a vampire."
+else
+  puts "NO WORRIES, GUYS."
+end
