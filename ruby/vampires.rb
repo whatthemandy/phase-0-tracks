@@ -74,3 +74,19 @@ until number_of_employees == 0
   number_of_employees -= 1
 
 end
+
+
+
+puts "Name any allergies one at a time. When finished, type 'done'."
+allergy = gets.chomp
+
+unless allergy == "done"
+
+  puts "Any more?"
+  allergy = gets.chomp
+
+    if allergy == "sunshine"
+      puts "Probably a vampire."
+    end
+
+  end
