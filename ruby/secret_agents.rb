@@ -31,6 +31,11 @@ def decrypt(string)
   index = 0
   alphabet = ('a'..'z').to_a
   while index < string.length
+    #puts "index = #{index}"
+    #puts "string[index] - #{string[index]}"
+    #puts "alphabet.index(string[index]) = #{alphabet.index(string[index])}"
+    #puts "alphabet[alphabet.index(string[index])-1] - #{alphabet[alphabet.index(string[index])-1]}"
+    #puts
     if string[index] == " "
       string[index] = " "
     else
