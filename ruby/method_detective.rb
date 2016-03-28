@@ -23,12 +23,15 @@ p " suspects".rjust(18, "the usual")
 # => "the usual suspects"
 
 p "The case of the disappearing last letter".chop
+p "The case of the disappearing last letter".slice(0..-2)
 # => "The case of the disappearing last lette"
 
+p "The mystery of the missing first letter".slice(1..-1)
+p "The mystery of the missing first letter"[1..-1]
 p "The mystery of the missing first letter".delete("T")
 # => "he mystery of the missing first letter"
 
-p "Elementary  ,    my   dear      Watson!".squeeze(" ")
+p "Elementary  ,    my   dear      Watson!".sub("  ,", ",").squeeze(" ")
 # => "Elementary, my dear Watson!"
 
 p "z".ord
