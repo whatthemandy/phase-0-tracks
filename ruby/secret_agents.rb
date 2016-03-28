@@ -29,7 +29,7 @@ encrypt("zed")
 
 def decrypt(string)
   index = 0
-  alphabet = ('a'..'z').to_a
+  alphabet = ("abcdefghijklmnopqrstuvwxyz")
   while index < string.length
     #puts "index = #{index}"
     #puts "string[index] - #{string[index]}"
