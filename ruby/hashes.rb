@@ -57,7 +57,8 @@ elsif input == "surprise"
   puts "Enter updated answer (yes/no):"
   interior_design[:surprise] = gets.chomp
 else
+  puts "Great!"
 end
 
 #print new hash data
-interior_design
+p interior_design
