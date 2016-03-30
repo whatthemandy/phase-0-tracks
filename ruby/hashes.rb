@@ -33,6 +33,31 @@ interior_design = {
   surprise: surprise
 }
 
-#print hash results
+#print hash data
 p interior_design
 
+#ask if user needs to update any variables, store answer in input variable
+puts "Do you need to update any items? Enter item-name or 'none':"
+input = gets.chomp
+
+#if user needs to update a variable, update the corresponding hash value
+if input == "name"
+  puts "Enter updated name:"
+  interior_design[:name] = gets.chomp
+elsif input == "age"
+  puts "Enter updated age:"
+  interior_design[:age] = gets.chomp
+elsif input == "children"
+  puts "Enter updated number of children:"
+  interior_design[:children] = gets.chomp
+elsif input == "theme"
+  puts "Enter updated theme:"
+  interior_design[:theme] = gets.chomp
+elsif input == "surprise"
+  puts "Enter updated answer (yes/no):"
+  interior_design[:surprise] = gets.chomp
+else
+end
+
+#print new hash data
+interior_design
