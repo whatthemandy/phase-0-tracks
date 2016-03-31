@@ -7,6 +7,7 @@ mcdorman = {
     },
     pets: {
       dogs: ["Cooper", "Ziah"]
+      cat: "Jack"
     }
   },
 
