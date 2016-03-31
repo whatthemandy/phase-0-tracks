@@ -5,9 +5,9 @@ mcdorman = {
       wife: "Rebecca",
       children: "Dakota"
     },
-      pets: {
-        dogs: ["Cooper", "Ziah"]
-      }
+    pets: {
+      dogs: ["Cooper", "Ziah"]
+    }
   },
 
   michael: {
@@ -16,7 +16,7 @@ mcdorman = {
       wife: "Julianne",
       children: "First bun still in the oven"
     },
-      pets: []
+    pets: []
   },
 
   alex: {
@@ -25,10 +25,10 @@ mcdorman = {
       wife: [],
       children: []
     },
-      pets: {
-        cats: ["Harley", "Zelda"],
-        pokemon: "Charizard"
-      }
+    pets: {
+      cats: ["Harley", "Zelda"],
+      pokemon: "Charizard"
+    }
   }
 }
 
