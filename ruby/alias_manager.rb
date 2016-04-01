@@ -43,11 +43,11 @@ codename.map! do |letter|
   #if vowel, replace with next vowel (remaining up- or down-case)
   elsif vowels.include?(letter)
     letter = vowels[vowels.index(letter)+1]
-  elsif consonants.include?(letter)
-    letter = consonants[consonants.index(letter)+1]
-  #if consonant, replace with next consonant (remaining up- or down-case)
   elsif up_vowels.include?(letter)
     letter = up_vowels[up_vowels.index(letter)+1]
+  #if consonant, replace with next consonant (remaining up- or down-case)
+  elsif consonants.include?(letter)
+    letter = consonants[consonants.index(letter)+1]
   elsif up_consonants.include?(letter)
     letter = up_consonants[up_consonants.index(letter)+1]
 end
@@ -62,18 +62,4 @@ secret_agents[name] = codename.join
 
 end
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
