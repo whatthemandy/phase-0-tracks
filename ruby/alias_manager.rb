@@ -16,15 +16,16 @@ if name  == "quit"
   end
 else
 
-#reverse first and last name
-codename = name.split(" ").reverse.join(" ")
+#downcase and reverse first and last name
+#note: first I kept the mid-name capitalized letters capitalized (like the D in McDorman: D => F)
+#but decided only capitalizing the first letter of the new codename provided better anonymity
+#so I'm downcasing everything from the start and will capitalize the new codename at the end
+codename = name.downcase.split(" ").reverse.join(" ")
 codename = codename.split("")
 
 #declare vowels and consonants arrays
 vowels = ["a", "e", "i", "o", "u"]
 consonants = ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z"]
-up_vowels = ["A", "E", "I", "O", "U"]
-up_consonants = ["B", "C", "D", "F", "G", "H", "J", "K", "L", "M", "N", "P", "Q", "R", "S", "T", "V", "W", "X", "Y", "Z"]
 
 #iterate through each letter and replace with the next in one line
 codename.map! do |letter|
@@ -40,25 +41,30 @@ codename.map! do |letter|
     letter = "B"
   elsif letter == "U"
     letter = "A"
-  #if vowel, replace with next vowel (remaining up- or down-case)
+  #if vowel, replace with next vowel
   elsif vowels.include?(letter)
     letter = vowels[vowels.index(letter)+1]
-  elsif up_vowels.include?(letter)
-    letter = up_vowels[up_vowels.index(letter)+1]
-  #if consonant, replace with next consonant (remaining up- or down-case)
+  #if consonant, replace with next consonant
   elsif consonants.include?(letter)
     letter = consonants[consonants.index(letter)+1]
-  elsif up_consonants.include?(letter)
-    letter = up_consonants[up_consonants.index(letter)+1]
 end
 end
+
+#combine array of changed letters into string
+codename = codename.join
+#split string into array at space between first/last name
+codename = codename.split(" ")
+#capitalize each name
+codename.map! { |name| name.capitalize }
+#re-join first/last name into one string
+codename = codename.join(" ")
 
 #print agent's new codename
 puts "CODENAME:"
-puts codename.join
+puts codename
 
 #add each new agent's name and codename to the hash
-secret_agents[name] = codename.join
+secret_agents[name] = codename
 
 end
 end
