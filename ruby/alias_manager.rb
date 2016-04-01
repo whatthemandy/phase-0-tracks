@@ -1,6 +1,15 @@
+#begin loop, run until user enters "quit"
+name = ""
+until name == "quit"
+
 #get agent name and store in name variable
-puts "What's your name?"
+puts "ENTER NAME (when finished, enter 'quit'):"
 name = gets.chomp
+
+#end loop if user enters "quit"
+if name  == "quit"
+  puts "END"
+else
 
 #reverse first and last name
 name = name.split(" ").reverse.join(" ")
@@ -11,10 +20,10 @@ consonants = ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "
 up_vowels = ["A", "E", "I", "O", "U"]
 up_consonants = ["B", "C", "D", "F", "G", "H", "J", "K", "L", "M", "N", "P", "Q", "R", "S", "T", "V", "W", "X", "Y", "Z"]
 
-#iterate through each letter
+#iterate through each letter and replace with the next in one line
 #if space, keep space
-#if vowel, replace with next vowel
-#if consonant, replace with next consonant
+#if vowel, replace with next vowel (remaining up- or down-case)
+#if consonant, replace with next consonant (remaining up- or down-case)
 
 name.map! do |letter|
   if letter == " "
@@ -38,5 +47,8 @@ name.map! do |letter|
 end
 end
 
-p name.join
+puts "SECRET AGENT NAME:"
+puts name.join
 
+end
+end
