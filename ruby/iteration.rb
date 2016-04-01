@@ -12,6 +12,8 @@ say_hello { |x, y| puts "Hi #{x} and #{y}!" }
 
 #Declare an array and a hash, and populate each of them with some data
 
+ages = [27, 21, 25, 18, 19]
+
 favorite_color = {
   mandy: "gray",
   kyrene: "red",
@@ -20,32 +22,33 @@ favorite_color = {
   alex: "purple"
 }
 
-ages = [27, 21, 25, 18, 19]
-
 #Demonstrate that you can iterate through each one using .each, and then using .map!:
 
+#array each:
+p "Before .each change:"
+p ages
+
+ages.each { |age| p age = age.next }
+
+p "After .each change:"
+p ages
+
+#hash each:
 p "Before .each change:"
 p favorite_color
 
-p favorite_color.each do |name, color|
-  color = color.upcase
+favorite_color.each do |name, color|
+  p color = color.upcase
 end
 
 p "After .each change:"
 p favorite_color
 
-p "Before .each change:"
-p ages
-
-ages.each { |age| age = age.next }
-
-p "After .each change:"
-p ages
-
+#array map!:
 p "Before .map! change:"
 p ages
 
-ages.map! { |age| age = age.next }
+ages.map! { |age| p age = age.next }
 
 p "After .map! change:"
 p ages
