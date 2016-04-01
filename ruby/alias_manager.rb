@@ -13,6 +13,7 @@ else
 
 #reverse first and last name
 name = name.split(" ").reverse.join(" ")
+name = name.split("")
 
 #declare vowels and consonants arrays
 vowels = ["a", "e", "i", "o", "u"]
