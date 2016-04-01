@@ -11,17 +11,19 @@ name = gets.chomp
 
 #end loop if user enters "quit"
 if name  == "quit"
+  #once user is done, print each new name/codename pair
   secret_agents.each do |name, codename|
     puts "#{name} is now known as #{codename}."
   end
 else
 
 #downcase and reverse first and last name
+codename = name.downcase.split(" ").reverse.join(" ")
+codename = codename.split("")
+
 #note: first I kept the mid-name capitalized letters capitalized (like the D in McDorman: D => F)
 #but decided only capitalizing the first letter of the new codename provided better anonymity
 #so I'm downcasing everything from the start and will capitalize the new codename at the end
-codename = name.downcase.split(" ").reverse.join(" ")
-codename = codename.split("")
 
 #declare vowels and consonants arrays
 vowels = ["a", "e", "i", "o", "u"]
