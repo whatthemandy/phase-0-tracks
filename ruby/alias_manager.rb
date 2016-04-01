@@ -20,12 +20,12 @@ else
 #downcase and reverse first and last name and save in new codename variable
 codename = name.downcase.split(" ").reverse.join(" ")
 
-#split name into array so we can change each letter one at a time
-codename = codename.split("")
-
 #note: first I kept the mid-name capitalized letters capitalized (like the D in McDorman: D => F)
 #but decided only capitalizing the first letter of the new codename provided better anonymity
 #so I'm downcasing everything from the start and will capitalize the new codename at the end
+
+#split name into array so we can change each letter one at a time
+codename = codename.split("")
 
 #declare vowel and consonant arrays to compare letters to
 vowels = ["a", "e", "i", "o", "u"]
@@ -60,8 +60,7 @@ codename.map! { |name| name.capitalize }
 codename = codename.join(" ")
 
 #print agent's new codename
-puts "CODENAME:"
-puts codename
+puts "CODENAME: #{codename}."
 
 #add each agent's name and new codename to the hash
 secret_agents[name] = codename
