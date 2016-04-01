@@ -18,6 +18,10 @@ consonants = ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "
 name.map! do |letter|
   if letter == " "
     letter = " "
+  elsif letter == "z"
+    letter = "b"
+  elsif letter == "u"
+    letter = "a"
   elsif vowels.include?(letter)
     letter = vowels[vowels.index(letter)+1]
   elsif consonants.include?(letter)
