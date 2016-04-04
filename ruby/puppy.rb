@@ -1,4 +1,4 @@
-# Puppies Class Design
+# Puppies Class Design Pseudocode
 # CHARACTERISTICS ----------------
 # Type: varies
 # Color: varies
@@ -10,11 +10,14 @@
 # Cuddle
 # Bark
 
+# define Puppy class
 class Puppy
 end
 
+# view available methods
 Puppy.methods
 
+# create new instances in Puppy class
 duchess = Puppy.new
 fido = Puppy.new
 spot = Puppy.new
