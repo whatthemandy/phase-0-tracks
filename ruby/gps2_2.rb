@@ -30,6 +30,10 @@ end
 # remove item and its quantity from hash
 # output: updated hash details
 
+def remove_item(list, item_name)
+  list.delete(item_name)
+end
+
 # Method to update the quantity of an item
 # input: list, item name, and new quantity
 # steps:
