@@ -56,3 +56,27 @@ def display_list(list)
     puts "#{x}: #{y}"
   end
 end
+
+# create new list
+grocery_list = make_list("Salsa")
+# p grocery_list
+
+# add items to list
+add_item(grocery_list, "Lemonade", 2)
+add_item(grocery_list, "Tomatoes", 3)
+add_item(grocery_list, "Onions", 1)
+add_item(grocery_list, "Ice Cream", 4)
+# p grocery_list
+
+# remove item from list
+remove_item(grocery_list, "Lemonade")
+# p grocery_list
+
+# update item in list
+update_item(grocery_list, "Ice Cream", 1)
+# p grocery_list
+
+# print updated list
+display_list(grocery_list)
+
+
