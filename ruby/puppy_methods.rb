@@ -61,3 +61,14 @@ end
 poppy = Flower.new
 poppy.color("yellow")
 poppy.petals(5)
+
+#create empty array
+flowers = []
+
+#create and store 50 instances of flowers class in the array
+50.times {flowers << Flower.new}
+
+p flowers
+
+
+
