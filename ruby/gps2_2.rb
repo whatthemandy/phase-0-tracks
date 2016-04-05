@@ -11,7 +11,7 @@ def make_list(items)
   items.each do |item|
     list[item] = 1
   end
-  p list
+  return list
 end
 
 # Method to add an item to a list
@@ -51,6 +51,32 @@ end
 # output: hash
 
 def display_list(list)
-  print "Grocery list:"
-  p list
+  puts "Grocery list: "
+  list.each do |x, y|
+    puts "#{x}: #{y}"
+  end
 end
+
+# create new list
+grocery_list = make_list("Salsa")
+# p grocery_list
+
+# add items to list
+add_item(grocery_list, "Lemonade", 2)
+add_item(grocery_list, "Tomatoes", 3)
+add_item(grocery_list, "Onions", 1)
+add_item(grocery_list, "Ice Cream", 4)
+# p grocery_list
+
+# remove item from list
+remove_item(grocery_list, "Lemonade")
+# p grocery_list
+
+# update item in list
+update_item(grocery_list, "Ice Cream", 1)
+# p grocery_list
+
+# print updated list
+display_list(grocery_list)
+
+
