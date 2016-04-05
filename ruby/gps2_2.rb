@@ -5,6 +5,15 @@
 # add individual items to new hash and set default value to 1
 # output: hash details
 
+def make_list(items)
+  items = items.split(" ")
+  list = {}
+  items.each do |item|
+    list[item] = 1
+  end
+  p list
+end
+
 # Method to add an item to a list
 # input: list, item name, and optional quantity
 # steps:
