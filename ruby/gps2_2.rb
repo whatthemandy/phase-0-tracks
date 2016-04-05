@@ -40,6 +40,10 @@ end
 # replace item with new quantity
 # output: updated hash details
 
+def update_item(list, item_name, quantity)
+  list[item_name] = quantity
+end
+
 # Method to print a list and make it look pretty
 # input: list hash details
 # steps:
