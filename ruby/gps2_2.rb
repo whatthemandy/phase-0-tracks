@@ -49,3 +49,8 @@ end
 # steps:
 # print hash
 # output: hash
+
+def display_list(list)
+  print "Grocery list:"
+  p list
+end
