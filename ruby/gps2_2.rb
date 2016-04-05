@@ -51,6 +51,8 @@ end
 # output: hash
 
 def display_list(list)
-  print "Grocery list:"
-  p list
+  puts "Grocery list: "
+  list.each do |x, y|
+    puts "#{x}: #{y}"
+  end
 end
