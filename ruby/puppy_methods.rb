@@ -37,3 +37,22 @@ spot.speak(3)
 spot.rollover
 spot.dog_years(3)
 spot.cuddle(10)
+
+
+#Create Flower class with several instance methods
+class Flower
+
+  def initialize
+    puts "initializing new flower instance..."
+  end
+
+  def color(color)
+    puts "I am #{color}!"
+  end
+
+  def petals(beginning_num)
+    final_num = beginning_num * 2
+    puts "I have #{beginning_num} petals now but will one day have #{final_num}!"
+  end
+
+end
