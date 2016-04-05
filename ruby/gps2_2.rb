@@ -11,7 +11,7 @@ def make_list(items)
   items.each do |item|
     list[item] = 1
   end
-  p list
+  return list
 end
 
 # Method to add an item to a list
