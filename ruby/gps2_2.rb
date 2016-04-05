@@ -20,6 +20,10 @@ end
 # add item and quantity to hash
 # output: hash details
 
+def add_item(list, item_name, quantity)
+  list[item_name] = quantity
+end
+
 # Method to remove an item from the list
 # input: list and item name
 # steps:
