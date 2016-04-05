@@ -68,7 +68,11 @@ flowers = []
 #create and store 50 instances of flowers class in the array
 50.times {flowers << Flower.new}
 
+#call instance methods on each of the 50 new instances in the array
+flowers.each do |x|
+  x.color("pink")
+  x.petals(3)
+end
+
 p flowers
-
-
 
