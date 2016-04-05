@@ -80,3 +80,28 @@ update_item(grocery_list, "Ice Cream", 1)
 display_list(grocery_list)
 
 
+#Reflect:
+# What did you learn about pseudocode from working on this challenge?
+# I learned that it's difficult!  It's hard for me to write the pseudocode first and not afterwards.
+# But if done in the correct order and done well, it makes writing the code later on a lot easier.
+
+# What are the tradeoffs of using arrays and hashes for this challenge?
+# I didn't use an array. because the information we needed to store for our grocery list was two-fold -
+# first, the items (keys) and then the quantities needed of each (values).
+
+# What does a method return?
+# Methods return the value of the last expression listed within them.
+
+# What kind of things can you pass into methods as arguments?
+# Lots of different objects can be passed into methods as arguments,
+# for example: strings, arrays, integers, variables, etc.
+
+# How can you pass information between methods?
+# You can send information from one method to another through parameters.
+# You can create a variable and set it equal to a method call, and pass that variable
+# as a parameter in other methods.
+
+# What concepts were solidified in this challenge, and what concepts are still confusing?
+# It still feels complex, but I learned how to pass info from one method to another by setting up
+# a new variable that is equal to the output of one of the methods (line 61 in the code above).
+
