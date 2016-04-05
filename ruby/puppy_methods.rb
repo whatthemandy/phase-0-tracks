@@ -56,3 +56,8 @@ class Flower
   end
 
 end
+
+#test Flower instance methods
+poppy = Flower.new
+poppy.color("yellow")
+poppy.petals(5)
