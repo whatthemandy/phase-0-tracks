@@ -14,6 +14,16 @@ class Santa
   def eat_milk_and_cookies(cookie_type)
     puts "That was a good #{cookie_type}!"
   end
+
+  #getter methods
+  def gender
+    @gender
+  end
+
+  def ethnicity
+    @ethnicity
+  end
+
 end
 
 # nick = Santa.new
