@@ -51,5 +51,13 @@ genders.length.times do |i|
   santas << Santa.new(genders[i], ethnicities[i])
 end
 
-p santas
+# p santas
+
+#create new santa instance, test attribute-changing and getter methods
+santa = Santa.new("male", "white")
+santa.celebrate_birthday
+santa.get_mad_at("Rudolph")
+santa.gender
+santa.ethnicity
+santa
 
