@@ -1,4 +1,8 @@
 class Santa
+  #declare readable/writable attributes
+  attr_reader :reindeer_ranking
+  attr_accessor :gender, :ethnicity
+
   def initialize(gender, ethnicity)
     puts "Initializing Santa instance ..."
     @gender = gender
@@ -54,10 +58,20 @@ end
 # p santas
 
 #create new santa instance, test attribute-changing and getter methods
+# santa = Santa.new("male", "white")
+# santa.celebrate_birthday
+# santa.get_mad_at("Rudolph")
+# santa.gender
+# santa.ethnicity
+# santa
+
+#create new santa instance, test attr_reader and attr_accessor
 santa = Santa.new("male", "white")
 santa.celebrate_birthday
 santa.get_mad_at("Rudolph")
-santa.gender
-santa.ethnicity
+p santa.gender = "female"
+p santa.ethnicity = "black"
+p santa.reindeer_ranking
 santa
+
 
