@@ -15,6 +15,16 @@ class Santa
     puts "That was a good #{cookie_type}!"
   end
 
+  #attribute-changing methods
+  def celebrate_birthday
+    @age += 1
+  end
+
+  def get_mad_at(reindeer)
+    @reindeer_ranking.delete(reindeer)
+    @reindeer_ranking.insert(-1, reindeer)
+  end
+
   #getter methods
   def gender
     @gender
@@ -23,7 +33,6 @@ class Santa
   def ethnicity
     @ethnicity
   end
-
 end
 
 # nick = Santa.new
