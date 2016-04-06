@@ -20,4 +20,17 @@ end
 # nick.speak
 # nick.eat_milk_and_cookies
 
+# create empty array for santa info
+santas = []
+
+# declare some genders and ethnicities
+genders = ["androgynous", "male", "non-binary", "bowie", "female"]
+ethnicities = ["black", "alaska native", "white", "N/A", "korean"]
+
+# initialize new santas with the gender and ethnicity array info
+genders.length.times do |i|
+  santas << Santa.new(genders[i], ethnicities[i])
+end
+
+p santas
 
