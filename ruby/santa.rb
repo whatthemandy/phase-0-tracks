@@ -1,11 +1,11 @@
-$ create santa class
+# create santa class
 class Santa
   # declare readable/writable attributes
   attr_reader :reindeer_ranking
-  attr_accessor :gender, :ethnicity
+  attr_accessor :gender, :ethnicity, :age
 
   def initialize(gender, ethnicity)
-    puts "Initializing Santa instance ..."
+    # puts "Initializing Santa instance ..."
     @gender = gender
     @ethnicity = ethnicity
     @reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
@@ -48,8 +48,8 @@ end
 santas = []
 
 # declare some genders and ethnicities
-genders = ["androgynous", "male", "non-binary", "bowie", "female"]
-ethnicities = ["black", "alaska native", "white", "N/A", "korean"]
+genders = ["Androgynous", "Male", "Non-binary", "Bowie", "Female"]
+ethnicities = ["Black", "Alaska Native", "White", "N/A", "Scottish"]
 
 # initialize new santas with the gender and ethnicity array info
 genders.length.times do |i|
@@ -59,14 +59,14 @@ end
 # p santas
 
 # create new santa instance, test attribute-changing and getter methods
-nick = Santa.new("male", "white")
-p nick.age
-p nick.celebrate_birthday
-p nick.reindeer_ranking
-p nick.get_mad_at("Rudolph")
-p nick.gender
-p nick.ethnicity
-p nick
+# nick = Santa.new("male", "white")
+# p nick.age
+# p nick.celebrate_birthday
+# p nick.reindeer_ranking
+# p nick.get_mad_at("Rudolph")
+# p nick.gender
+# p nick.ethnicity
+# p nick
 
 # create new santa instance, test attr_reader and attr_accessor
 # nicky = Santa.new("male", "white")
@@ -76,4 +76,28 @@ p nick
 # nicky.gender = "female"
 # nicky.ethnicity = "black"
 # p nicky
+
+
+# declare some genders and ethnicities
+genders = ["Agender", "Female", "Bigender", "Male", "Gender Fluid", "N/A", "Androgynous", "Non-binary", "Bowie", "Who cares"]
+ethnicities = ["Black", "Latino", "White", "Japanese-African", "Prefer not to say", "Mystical Creature (unicorn)", "N/A", "Scottish", "Alaska Native", "Khmer"]
+
+# initialize 100 new santas with the gender and ethnicity array info
+# give each santa a random gender, ethnicity, and age (1-140)
+# print out the attributes of each santa in a nicely readable way
+5.times do |i|
+  random_santa = Santa.new(genders.sample, ethnicities.sample)
+  random_santa.age = rand(0..140)
+  puts "Santa #{i+1}:"
+  puts "  Age: #{random_santa.age}"
+  puts "  Gender: #{random_santa.gender}"
+  puts "  Ethnicity: #{random_santa.ethnicity}"
+end
+
+
+
+
+
+
+
 
