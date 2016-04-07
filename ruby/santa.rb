@@ -1,5 +1,6 @@
+$ create santa class
 class Santa
-  #declare readable/writable attributes
+  # declare readable/writable attributes
   attr_reader :reindeer_ranking
   attr_accessor :gender, :ethnicity
 
@@ -57,21 +58,22 @@ end
 
 # p santas
 
-#create new santa instance, test attribute-changing and getter methods
-# santa = Santa.new("male", "white")
-# santa.celebrate_birthday
-# santa.get_mad_at("Rudolph")
-# santa.gender
-# santa.ethnicity
-# santa
+# create new santa instance, test attribute-changing and getter methods
+nick = Santa.new("male", "white")
+p nick.age
+p nick.celebrate_birthday
+p nick.reindeer_ranking
+p nick.get_mad_at("Rudolph")
+p nick.gender
+p nick.ethnicity
+p nick
 
-#create new santa instance, test attr_reader and attr_accessor
-santa = Santa.new("male", "white")
-santa.celebrate_birthday
-santa.get_mad_at("Rudolph")
-p santa.gender = "female"
-p santa.ethnicity = "black"
-p santa.reindeer_ranking
-santa
-
+# create new santa instance, test attr_reader and attr_accessor
+# nicky = Santa.new("male", "white")
+# p nicky
+# nicky.celebrate_birthday
+# nicky.get_mad_at("Rudolph")
+# nicky.gender = "female"
+# nicky.ethnicity = "black"
+# p nicky
 
