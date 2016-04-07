@@ -1,3 +1,32 @@
+# declare class
+# add necessary attr-attributes
+# add methods declared in the tests
+
+class TodoList
+  attr_accessor :tasks
+
+  def initialize(tasks)
+    @tasks = tasks
+  end
+
+  def get_items
+    tasks
+  end
+
+  def add_item(item)
+    tasks.push(item)
+  end
+
+  def delete_item(item)
+    tasks.delete(item)
+  end
+
+  def get_item(i)
+    tasks[i]
+  end
+end
+
+# provided r-spec tests:
 describe TodoList do
   let(:list) { TodoList.new(["do the dishes", "mow the lawn"]) }
 
@@ -19,3 +48,4 @@ describe TodoList do
     expect(list.get_item(0)).to eq "do the dishes"
   end
 end
+
