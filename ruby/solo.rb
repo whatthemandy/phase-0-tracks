@@ -12,12 +12,13 @@
 
 
 class Books
-  attr_reader :title, :pages
+  attr_reader :title, :pages, :author
   attr_accessor :quality
 
-  def initialize(title, pages, quality)
-    puts "Initializing new book: #{title}."
+  def initialize(title, author, pages, quality)
+    # puts "Initializing new book: #{title}."
     @title = title
+    @author = author
     @pages = pages
     @quality = quality
   end
@@ -46,7 +47,6 @@ end
 # book.quality = "Excellent"
 # p book.quality
 
-
 # set up empty array to store new book instances in
 books = []
 
@@ -58,6 +58,9 @@ loop do
   title = gets.chomp
   break if title == "done"
 
+  puts "Enter author:"
+  author = gets.chomp
+
   puts "Enter number of pages:"
   pages = gets.chomp.to_i
 
@@ -65,7 +68,7 @@ loop do
   quality = gets.chomp
 
   # initialize new book instance using user input as arguments
-  book = Books.new(title, pages, quality)
+  book = Books.new(title, author, pages, quality)
 
   # store new book instance in array
   books << book
@@ -73,7 +76,6 @@ loop do
 end
 
 # print array
-print "Book data: "
-p books
-
+# print "Book data: "
+# p books
 
