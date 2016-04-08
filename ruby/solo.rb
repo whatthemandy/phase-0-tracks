@@ -12,7 +12,6 @@
 
 
 class Books
-
   attr_reader :title, :pages
   attr_accessor :quality
 
@@ -34,6 +33,16 @@ class Books
   def change_life
     puts "'#{title}' changed my life!"
   end
-
 end
+
+# create new book to test class methods:
+# book = Books.new("Ender's Game", 350)
+# p book.title
+# p book.pages
+# p book.inspire("happy")
+# p book.time_to_read(15)
+# p book.change_life
+# book.quality = "Excellent"
+# p book.quality
+
 
