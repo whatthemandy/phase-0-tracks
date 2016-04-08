@@ -15,10 +15,11 @@ class Books
   attr_reader :title, :pages
   attr_accessor :quality
 
-  def initialize(title, pages)
+  def initialize(title, pages, quality)
     puts "Initializing new book: #{title}."
     @title = title
     @pages = pages
+    @quality = quality
   end
 
   def inspire(emotion)
@@ -35,7 +36,7 @@ class Books
   end
 end
 
-# create new book to test class methods:
+# create new book instance to test class methods:
 # book = Books.new("Ender's Game", 350)
 # p book.title
 # p book.pages
