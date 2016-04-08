@@ -1,7 +1,7 @@
 # Class Design Pseudocode - BOOKS
 
 # Characteristics/Attributes:
-# Amazing: yes (boolean)
+# Quality: varies (string)
 # Title: varies (string)
 # Number of pages: varies (integer)
 
@@ -46,25 +46,34 @@ end
 # book.quality = "Excellent"
 # p book.quality
 
+
 # set up empty array to store new book instances in
 books = []
 
-# get book information from user
-puts "Enter book title:"
-title = gets.chomp
+# loop - ask user for book info and store in array until user is done
+loop do
 
-puts "Enter number of pages:"
-pages = gets.chomp
+  # get book information from user, end loop when user enters "done"
+  puts "Enter book title, or 'done':"
+  title = gets.chomp
+  break if title == "done"
 
-puts "Enter quality of book:"
-quality = gets.chomp
+  puts "Enter number of pages:"
+  pages = gets.chomp.to_i
 
-# initialize new book instance using user input as arguments
-book = Books.new(title, pages, quality)
+  puts "Enter quality of book:"
+  quality = gets.chomp
 
-# store new book instance in array
-books << book
+  # initialize new book instance using user input as arguments
+  book = Books.new(title, pages, quality)
+
+  # store new book instance in array
+  books << book
+
+end
 
 # print array
+print "Book data: "
 p books
+
 
