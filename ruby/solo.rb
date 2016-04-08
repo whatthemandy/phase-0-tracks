@@ -46,4 +46,25 @@ end
 # book.quality = "Excellent"
 # p book.quality
 
+# set up empty array to store new book instances in
+books = []
+
+# get book information from user
+puts "Enter book title:"
+title = gets.chomp
+
+puts "Enter number of pages:"
+pages = gets.chomp
+
+puts "Enter quality of book:"
+quality = gets.chomp
+
+# initialize new book instance using user input as arguments
+book = Books.new(title, pages, quality)
+
+# store new book instance in array
+books << book
+
+# print array
+p books
 
