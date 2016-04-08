@@ -11,3 +11,13 @@
 # Change your life
 # Teach you something new
 
+
+class Books
+
+  def initialize(title)
+    puts "Initializing new book: #{title}."
+  end
+
+end
+
+
