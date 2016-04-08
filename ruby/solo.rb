@@ -14,6 +14,9 @@
 
 class Books
 
+  attr_reader :title :pages
+  attr_accessor :quality
+
   def initialize(title)
     puts "Initializing new book: #{title}."
   end
