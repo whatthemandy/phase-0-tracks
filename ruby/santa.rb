@@ -85,15 +85,17 @@ ethnicities = ["Black", "Latino", "White", "Japanese-African", "Prefer not to sa
 # initialize 100 new santas with the gender and ethnicity array info
 # give each santa a random gender, ethnicity, and age (1-140)
 # print out the attributes of each santa in a nicely readable way
-5.times do |i|
+100.times do |i|
   random_santa = Santa.new(genders.sample, ethnicities.sample)
   random_santa.age = rand(0..140)
+  random_santa.reindeer_ranking = random_santa.reindeer_ranking.shuffle
   puts "Santa #{i+1}:"
   puts "  Age: #{random_santa.age}"
   puts "  Gender: #{random_santa.gender}"
   puts "  Ethnicity: #{random_santa.ethnicity}"
+  puts "  Reindeer Ranking: #{random_santa.reindeer_ranking}"
+  puts
 end
-
 
 
 
