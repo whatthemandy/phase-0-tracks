@@ -31,3 +31,12 @@ class Foe
   include Shout
 end
 
+# instantiate instances of classes and call module methods
+friend = Friend.new
+p friend.yelling_happily("omg i love your shirt")
+p friend.yell_angrily("i dropped my ice cream noooo")
+
+foe = Foe.new
+p foe.yelling_happily("i win")
+p foe.yell_angrily("you will rue the day you ever crossed me")
+
