@@ -8,6 +8,6 @@ module Shout
   end
 end
 
-puts yell_angrily("Oh, fiddlesticks")
-puts yelling_happily("yas queen")
+p Shout.yell_angrily("Oh, fiddlesticks")
+p Shout.yelling_happily("yas queen")
 
