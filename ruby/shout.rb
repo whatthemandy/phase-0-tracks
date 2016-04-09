@@ -21,3 +21,13 @@ module Shout
     words.upcase + "!" + " *fist-bump*"
   end
 end
+
+#create two new classes and include shout module
+class Friend
+  include Shout
+end
+
+class Foe
+  include Shout
+end
+
