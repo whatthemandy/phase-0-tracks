@@ -1,8 +1,8 @@
 # create santa class
 class Santa
   # declare readable/writable attributes
-  attr_reader :reindeer_ranking
-  attr_accessor :gender, :ethnicity, :age
+  attr_reader :gender, :ethnicity
+  attr_accessor :age, :reindeer_ranking
 
   def initialize(gender, ethnicity)
     # puts "Initializing Santa instance ..."
@@ -96,10 +96,4 @@ ethnicities = ["Black", "Latino", "White", "Japanese-African", "Prefer not to sa
   puts "  Reindeer Ranking: #{random_santa.reindeer_ranking}"
   puts
 end
-
-
-
-
-
-
 
