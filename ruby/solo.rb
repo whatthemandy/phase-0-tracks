@@ -87,8 +87,8 @@ puts
 # for the number of books there are, print info for each all pretty-like
 books.length.times do |i|
   puts "#{i+1}. Title: #{books[i].title}"
-  puts "Author: #{books[i].author}"
-  puts "Number of Pages: #{books[i].pages}"
-  puts "Quality of book: #{books[i].quality}"
+  puts "   Author: #{books[i].author}"
+  puts "   Number of Pages: #{books[i].pages}"
+  puts "   Quality of book: #{books[i].quality}"
   puts
 end
