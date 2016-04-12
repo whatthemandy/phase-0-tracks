@@ -79,6 +79,18 @@ p password
 
 Another option for encrypt/decrypt I came up with via Sneha a couple weeks later:
 
+# An encrypt method that advances every letter of a string one letter forward. So "abc" would become "bcd". For now, you can assume lowercase input and output.
+
+#Method: Advances every letter of a string one letter forward
+# Input: string
+# Steps:
+## split up the string into an array. split each character
+## create an alphabet string
+## access each character that was in input and determine the index number and then increment by 1.
+## join back characters and return new string
+# Output: new string
+
+
  array = []
 
  for i in 0...input.length
