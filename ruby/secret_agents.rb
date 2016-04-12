@@ -72,3 +72,25 @@ else
 end
 
 p password
+
+
+
+=begin
+
+Another option for encrypt/decrypt I came up with via Sneha a couple weeks later:
+
+ array = []
+
+ for i in 0...input.length
+    alphabet = "abcdefghijklmnopqrstuvwxyz"
+    alphabet_num = alphabet.index(input[i])
+    alphabet_num -= 1
+    array << alphabet[alphabet_num]
+
+
+  end
+
+  p array.join
+
+
+=end
