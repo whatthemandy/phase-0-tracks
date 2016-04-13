@@ -34,20 +34,19 @@ class VirusPredictor
   # value to the nearest integer (in case the result is a float)
   def predicted_deaths
     # predicted deaths is solely based on population density
-    if @population_density >= 200
-      number_of_deaths = (@population * 0.4).floor
-    elsif @population_density >= 150
-      number_of_deaths = (@population * 0.3).floor
-    elsif @population_density >= 100
-      number_of_deaths = (@population * 0.2).floor
-    elsif @population_density >= 50
-      number_of_deaths = (@population * 0.1).floor
-    else
-      number_of_deaths = (@population * 0.05).floor
+    case @population_density
+      when @population_density >= 200
+        number_of_deaths = (@population * 0.4).floor
+      when @population_density >= 150
+        number_of_deaths = (@population * 0.3).floor
+      when @population_density >= 100
+        number_of_deaths = (@population * 0.2).floor
+      when @population_density >= 50
+        number_of_deaths = (@population * 0.1).floor
+      else
+        number_of_deaths = (@population * 0.05).floor
     end
-
     print "#{@state} will lose #{number_of_deaths} people in this outbreak"
-
   end
 
   # takes population_density and state values and based on population_density
