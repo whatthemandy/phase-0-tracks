@@ -1,7 +1,7 @@
 # Virus Predictor
 
-# I worked on this challenge [by myself, with: ].
-# We spent [#] hours on this challenge.
+# I worked on this challenge with: Kyrene Jackson.
+# We spent 1.75 hours on this challenge (and I worked on it for an additional hour later).
 
 # EXPLANATION OF require_relative
 # require_relative loads the data from another file (here it's 'state_data')
@@ -55,7 +55,6 @@ class VirusPredictor
     # We are still perfecting our formula here. The speed is also affected
     # by additional factors we haven't added into this functionality.
     speed = 0.0
-
     if @population_density >= 200
       speed += 0.5
     elsif @population_density >= 150
@@ -67,13 +66,9 @@ class VirusPredictor
     else
       speed += 2.5
     end
-
     puts " and will spread across the state in #{speed} months.\n\n"
-
   end
-
 end
-
 
 # Refactor - combine predicted_deaths and speed_of_spread:
 # (have to remove individual methods and line 27 for it to work)
