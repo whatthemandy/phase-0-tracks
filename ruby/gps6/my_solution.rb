@@ -74,6 +74,33 @@ class VirusPredictor
 
 end
 
+
+# Refactor - combine predicted_deaths and speed_of_spread:
+# (have to remove individual methods and line 27 for it to work)
+
+  # def predicted_deaths
+  #   #number_of_deaths = @population
+  #   speed = 0
+  #   if @population_density >= 200
+  #     number_of_deaths = (@population * 0.4).floor
+  #     speed += 0.5
+  #   elsif @population_density >= 150
+  #     number_of_deaths = (@population * 0.3).floor
+  #     speed += 1
+  #   elsif @population_density >= 100
+  #     number_of_deaths = (@population * 0.2).floor
+  #     speed += 1.5
+  #   elsif @population_density >= 50
+  #     number_of_deaths = (@population * 0.1).floor
+  #     speed += 2
+  #   else
+  #     number_of_deaths = (@population * 0.05).floor
+  #     speed += 2.5
+  #   end
+  #   puts "#{@state} will lose #{number_of_deaths} people in this outbreak and will spread across the state in #{speed} months.\n\n"
+  # end
+
+
 #=======================================================================
 
 # DRIVER CODE
