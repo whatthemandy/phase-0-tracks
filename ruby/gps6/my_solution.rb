@@ -6,7 +6,7 @@
 # EXPLANATION OF require_relative
 # require_relative loads the data from another file (here it's 'state_data')
 # and acts as though the contents of that file were written in the current file.
-# relative means the filename given is its location to the current file
+# relative means the filename given is its location relative to the current file
 # (whereas just 'require' would need to give the full file path).
 
 require_relative 'state_data'
@@ -100,5 +100,28 @@ end
 #=======================================================================
 # Reflection Section
 
+# What are the differences between the two different hash syntaxes shown in the state_data file?
+## The "main" hash uses strings for as keys (state names) and uses the shovel to assign the
+## value data (which is another hash).  The nested hash uses symbols as keys and the shortened
+## symbol assignment for the values, which is a colon instead of the hash rocket.
 
+# What does require_relative do? How is it different from require?
+## Require_relative loads the data from another file and acts as though the contents of that file ## were written in the current file.  'Relative' means the filename given is its location relative
+## to the current file, whereas just 'require' would need to give the full file path.
+
+# What are some ways to iterate through a hash?
+## You can iterate through a hash with each - through all the info or just the keys/values:
+## hash.each { |key, value| do something }
+## hash.each_key { |key| do something with keys }
+## hash.each_value { |value| do something with values }
+
+# When refactoring virus_effects, what stood out to you about the variables, if anything?
+## The variables are instance variables, meaning they are accessible throughout the whole
+## class, and they don't need to be passed in to the methods since the methods already know
+## what they are for each instance of the class.
+
+# What concept did you most solidify in this challenge?
+## The refactoring of the methods really helped me understand the scope of the instance variables.
+## I don't know if I would have figured out on my own that they didn't need to be passed in as
+## arguments, but my partner figured it out so now I know!
 
