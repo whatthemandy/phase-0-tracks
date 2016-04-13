@@ -4,18 +4,24 @@
 # We spent [#] hours on this challenge.
 
 # EXPLANATION OF require_relative
-#
-#
+# require_relative loads the data from another file (here it's 'state_data')
+# and acts as though the contents of that file were written in the current file.
+# relative means the filename given is its location to the current file
+# (whereas just 'require' would need to give the full file path).
+
 require_relative 'state_data'
 
 class VirusPredictor
-
+  # on each new instance of the class, the initialize method runs and accepts 3 arguments
+  # and assigns them to the values of each instance variable for each new instance
   def initialize(state_of_origin, population_density, population)
     @state = state_of_origin
     @population = population
     @population_density = population_density
   end
 
+  # takes state data from hash and passes it to the predicted_deaths and
+  # speed_of_spread methods and prints out the results from each
   def virus_effects
     predicted_deaths(@population_density, @population, @state)
     speed_of_spread(@population_density, @state)
@@ -23,6 +29,9 @@ class VirusPredictor
 
   private
 
+  # takes population_density, population, and state values from hash as arguments
+  # and based on population_density, calculates the number_of_deaths and converts the
+  # value to the nearest integer (in case the result is a float)
   def predicted_deaths(population_density, population, state)
     # predicted deaths is solely based on population density
     if @population_density >= 200
@@ -41,6 +50,8 @@ class VirusPredictor
 
   end
 
+  # takes population_density and state values and based on population_density
+  # calculates the speed of the spread of the disease
   def speed_of_spread(population_density, state) #in months
     # We are still perfecting our formula here. The speed is also affected
     # by additional factors we haven't added into this functionality.
