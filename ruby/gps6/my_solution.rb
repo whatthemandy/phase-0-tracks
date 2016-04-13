@@ -23,8 +23,8 @@ class VirusPredictor
   # takes state data from hash and passes it to the predicted_deaths and
   # speed_of_spread methods and prints out the results from each
   def virus_effects
-    predicted_deaths(@population_density, @population, @state)
-    speed_of_spread(@population_density, @state)
+    predicted_deaths
+    speed_of_spread
   end
 
   private
@@ -32,7 +32,7 @@ class VirusPredictor
   # takes population_density, population, and state values from hash as arguments
   # and based on population_density, calculates the number_of_deaths and converts the
   # value to the nearest integer (in case the result is a float)
-  def predicted_deaths(population_density, population, state)
+  def predicted_deaths
     # predicted deaths is solely based on population density
     if @population_density >= 200
       number_of_deaths = (@population * 0.4).floor
@@ -52,7 +52,7 @@ class VirusPredictor
 
   # takes population_density and state values and based on population_density
   # calculates the speed of the spread of the disease
-  def speed_of_spread(population_density, state) #in months
+  def speed_of_spread #in months
     # We are still perfecting our formula here. The speed is also affected
     # by additional factors we haven't added into this functionality.
     speed = 0.0
