@@ -21,10 +21,18 @@ function reverse(string) {
   for (var i = string.length; i > 0; i--) {
     word += string[i-1];
   }
-  console.log(word)
+  return word;  //changed from console.log(word); so that lines 35-37 will work
 }
 
-reverse("hello")
+reverse("hello")  // no longer prints on its own since console.log changed to return
+console.log(reverse("hello"))
 
+// add driver code that calls the function in order to reverse a string of your choice
+// and stores the result of the function in a variable
+var backwards_granny = reverse("babushka");
 
+// add driver code that prints the variable if some condition is true:
+if (1 == 1) {
+  console.log(backwards_granny);
+}
 
