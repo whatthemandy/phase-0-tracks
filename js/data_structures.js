@@ -2,9 +2,12 @@
 var colors = ["blue", "pink", "green", "orange"];
 var names = ["Ed", "Bob", "Mike", "Pat"];
 
-// add to arrays
+// add to arrays and print out changes
 colors.push("yellow");
 names.push("Sally");
+
+console.log(names)
+console.log(colors)
 
 // use two arrays to make object using names as keys and colors as their values
 var horses = {};
