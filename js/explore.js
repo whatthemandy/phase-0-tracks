@@ -9,17 +9,19 @@ for (var i = 10; i > 0; i--) {
 }
 
 // pseudocode a function that takes a string as a parameter and reverses the string:
+// declare empty word
 // set counter equal to string length
 // set loop to run while count is greater than zero
-// print character in string equal to current count
+// add each character in string equal to current count to empty word
 // subtract one from count at the end of each iteration
+// print out new word
 
 function reverse(string) {
-  word = [];
+  word = "";
   for (var i = string.length; i > 0; i--) {
-    word.push(string.charAt(i-1));
+    word += (string.charAt(i-1));
   }
-  console.log(word.join(""))
+  console.log(word)
 }
 
 reverse("hello")
