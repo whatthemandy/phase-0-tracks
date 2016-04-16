@@ -90,9 +90,15 @@ function random(integer) {
 random(5)
 
 // set new "array" variable to equal the result of the random generator
+// run longest function on random array to find longest string
 var array = random(5)
 console.log(array)
-
-// run longest function on random array to find longest string
 longest(array)
+
+// 10 times: generate an array, print the array, feed the array to longest function & print result:
+for (i = 1; i < 11; i++) {
+    var array = random(5)
+    console.log(array)
+    longest(array)
+}
 
