@@ -39,22 +39,23 @@ longest(["you", "know", "nothing", "jon", "snow"]);
 // match({name: "Steven", age: 54}, {name: "Tamir", age: 54})
 
 // second attempt: works but not as asked... only checks whether the first or second set of keys match
-// but it was as close as I could come to figuring out a solution :(
+// but it was as close as I could come to figuring out a solution
 function match(x, y) {
   if ((Object.keys(x)[0] == Object.keys(y)[0]) || (Object.keys(x)[1] == Object.keys(y)[1])) {
-    console.log("true");
+    return true;
   }
   else {
-    console.log("false");
+    return false;
   }
 }
 match({name: "Steven", age: 54}, {name: "Tamir", age: 54})
 
-// I tried to turn the second solution into a for loop but it doesn't work correctly either.
+// I tried to turn the second solution into a for loop but it doesn't work:
 // function match_loop(x, y) {
 //   for (var i = 0; i < Object.keys(x).length; i++) {
-//       if (Object.keys(x)[i] == Object.keys(y)[i]);
+//       if (Object.keys(x)[i] == Object.keys(y)[i]); {
 //       console.log("true");
+//       }
 //   }
 // }
 // match_loop({name: "Steven", age: 54}, {name: "Tamir", age: 54})
