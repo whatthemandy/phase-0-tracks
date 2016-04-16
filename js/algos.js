@@ -27,9 +27,21 @@ longest(["you", "know", "nothing", "jon", "snow"]);
 // if object's first key matches first key in second object, check whether values also match
 // if they do, return true, and if not continue checking keys
 
-first attempt: Object.values doesn't work but I don't know why so this doesn't work...
+// first attempt: Object.values doesn't work but I don't know why so this doesn't work...
+// function match(x, y) {
+//   if ((Object.keys(x)[0] == Object.keys(y)[0]) || (Object.values(x)[0] == Object.values(y)[0])) {
+//     console.log("true");
+//   }
+//   else {
+//     console.log("false");
+//   }
+// }
+// match({name: "Steven", age: 54}, {name: "Tamir", age: 54})
+
+// second attempt: works but not as asked... only checks whether the first or second set of keys match
+// but it was as close as I could come to figuring out a solution :(
 function match(x, y) {
-  if ((Object.keys(x)[0] == Object.keys(y)[0]) || (Object.values(x)[0] == Object.values(y)[0])) {
+  if ((Object.keys(x)[0] == Object.keys(y)[0]) || (Object.keys(x)[1] == Object.keys(y)[1])) {
     console.log("true");
   }
   else {
@@ -37,6 +49,4 @@ function match(x, y) {
   }
 }
 match({name: "Steven", age: 54}, {name: "Tamir", age: 54})
-
-
 
