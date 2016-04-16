@@ -15,7 +15,28 @@ function longest(array) {
   console.log(longest)
 }
 
+// driver code to test function:
 longest(["long phrase", "longest phrase", "longer phrase"]);
 longest(["supercalifragilisticexpialidocious", "nope", "bonkers"]);
+longest(["you", "know", "nothing", "jon", "snow"]);
+
+
+
+// write a function that takes two objects and checks to see if the objects share at least one key-value pair:
+// loop through first object's keys and check them against the second's
+// if object's first key matches first key in second object, check whether values also match
+// if they do, return true, and if not continue checking keys
+
+first attempt: Object.values doesn't work but I don't know why so this doesn't work...
+function match(x, y) {
+  if ((Object.keys(x)[0] == Object.keys(y)[0]) || (Object.values(x)[0] == Object.values(y)[0])) {
+    console.log("true");
+  }
+  else {
+    console.log("false");
+  }
+}
+match({name: "Steven", age: 54}, {name: "Tamir", age: 54})
+
 
 
