@@ -81,7 +81,7 @@ function length(integer) {
   for (var i = 0; i < integer; i++) {
     var word = "";
       for(var index = 0; index < Math.floor((Math.random()*10 + 1)); index++) {
-        word += alpha.charAt(Math.floor(Math.random() * alpha.length));
+        word += alpha.charAt(Math.floor((Math.random()*10 + 1)));
       }
     array.push(word);
     }
