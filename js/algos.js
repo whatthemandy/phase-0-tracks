@@ -75,7 +75,7 @@ match({name: "Steven", age: 54}, {surname: "Tamir", children: 4})
 // add word to array
 // print array
 
-function length(integer) {
+function random(integer) {
   array = [];
   var alpha = "abcdefghijklmnopqrstuvwxyz";
   for (var i = 0; i < integer; i++) {
@@ -85,6 +85,14 @@ function length(integer) {
       }
     array.push(word);
     }
-    console.log(array)
+    return array  // changed from "console.log(array)"
 }
-length(5)
+random(5)
+
+// set new "array" variable to equal the result of the random generator
+var array = random(5)
+console.log(array)
+
+// run longest function on random array to find longest string
+longest(array)
+
