@@ -42,13 +42,15 @@ longest(["you", "know", "nothing", "jon", "snow"]);
 // but it was as close as I could come to figuring out a solution
 function match(x, y) {
   if ((Object.keys(x)[0] == Object.keys(y)[0]) || (Object.keys(x)[1] == Object.keys(y)[1])) {
-    return true;
+    console.log("true");
   }
   else {
-    return false;
+    console.log("false");
   }
 }
 match({name: "Steven", age: 54}, {name: "Tamir", age: 54})
+match({name: "Steven", age: 54}, {surname: "Tamir", children: 4})
+
 
 // I tried to turn the second solution into a for loop but it doesn't work:
 // function match_loop(x, y) {
