@@ -1,4 +1,4 @@
-// write a function that takes an array of words or phrases and returns the longest string in the array:
+// 1. Write a function that takes an array of words or phrases and returns the longest string in the array:
 // declare function that takes an array as a parameter
 // set empty object variable to eventually equal the longest string
 // loop through array and find the length of each string (.length)
@@ -22,7 +22,7 @@ longest(["you", "know", "nothing", "jon", "snow"]);
 
 
 
-// write a function that takes two objects and checks to see if the objects share at least one key-value pair:
+// 2. Write a function that takes two objects and checks to see if they share at least one key-value pair:
 // loop through first object's keys and check them against the second's
 // if object's first key matches first key in second object, check whether values also match
 // if they do, return true, and if not continue checking keys
@@ -51,7 +51,6 @@ function match(x, y) {
 match({name: "Steven", age: 54}, {name: "Tamir", age: 54})
 match({name: "Steven", age: 54}, {surname: "Tamir", children: 4})
 
-
 // I tried to turn the second solution into a for loop but it doesn't work:
 // function match_loop(x, y) {
 //   for (var i = 0; i < Object.keys(x).length; i++) {
@@ -64,8 +63,7 @@ match({name: "Steven", age: 54}, {surname: "Tamir", children: 4})
 
 
 
-
-// Write a function that takes an integer for length, and builds and returns an array of strings of the given length.
+// 3. Write a function that takes an integer for length, and builds/returns array of strings of the given length:
 // declare function that takes an integer as argument
 // establish an empty array to add generated words to
 // declare alphabet string to get random letters from
@@ -89,7 +87,7 @@ function random(integer) {
 }
 random(5)
 
-// set new "array" variable to equal the result of the random generator
+// set new "array" variable to equal the result of the random generator and
 // run longest function on random array to find longest string
 var array = random(5)
 console.log(array)
