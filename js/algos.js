@@ -50,3 +50,15 @@ function match(x, y) {
 }
 match({name: "Steven", age: 54}, {name: "Tamir", age: 54})
 
+// I tried to turn the second solution into a for loop but it doesn't work correctly either.
+// function match_loop(x, y) {
+//   for (var i = 0; i < Object.keys(x).length; i++) {
+//       if (Object.keys(x)[i] == Object.keys(y)[i]);
+//       console.log("true");
+//   }
+// }
+// match_loop({name: "Steven", age: 54}, {name: "Tamir", age: 54})
+
+
+
+
