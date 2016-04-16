@@ -65,3 +65,26 @@ match({name: "Steven", age: 54}, {surname: "Tamir", children: 4})
 
 
 
+// Write a function that takes an integer for length, and builds and returns an array of strings of the given length.
+// declare function that takes an integer as argument
+// establish an empty array to add generated words to
+// declare alphabet string to get random letters from
+// write a loop to run integer number of times
+// get a random letter from the alphabet
+// add to word random number of times
+// add word to array
+// print array
+
+function length(integer) {
+  array = [];
+  var alpha = "abcdefghijklmnopqrstuvwxyz";
+  for (var i = 0; i < integer; i++) {
+    var word = "";
+      for(var index = 0; index < Math.floor((Math.random()*10 + 1)); index++) {
+        word += alpha.charAt(Math.floor(Math.random() * alpha.length));
+      }
+    array.push(word);
+    }
+    console.log(array)
+}
+length(5)
