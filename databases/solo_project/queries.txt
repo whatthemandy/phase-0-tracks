@@ -68,4 +68,12 @@ Dead Pool    false            Professor Moria
 Mal Reynold  true             Professor Snape
 Arya Stark   true             Professor Moria
 
+sqlite> SELECT * FROM students CROSS JOIN teachers ON students.teacher_id=teachers.id;
+id          name         grade       permission_slip  teacher_id  id          name
+----------  -----------  ----------  ---------------  ----------  ----------  ---------------
+1           Amelia Pond  11          false            2           2           Professor Snape
+2           Tom Bombadi  10          true             1           1           Professor McGon
+3           Dead Pool    10          false            3           3           Professor Moria
+4           Mal Reynold  12          true             2           2           Professor Snape
+5           Arya Stark   8           true             3           3           Professor Moria
 
