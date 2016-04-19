@@ -13,31 +13,18 @@ sqlite>
 
 
 3. Display the information in both tables using one query.
-sqlite> SELECT * FROM students, teachers;
+sqlite> SELECT * FROM students JOIN teachers ON students.teacher_id=teachers.id;
 id          name         grade       permission_slip  teacher_id  id          name
-----------  -----------  ----------  ---------------  ----------  ----------  --------------------
-1           Amelia Pond  11          false            2           1           Professor McGonagall
+----------  -----------  ----------  ---------------  ----------  ----------  ---------------
 1           Amelia Pond  11          false            2           2           Professor Snape
-1           Amelia Pond  11          false            2           3           Professor Moriarty
-2           Tom Bombadi  10          true             1           1           Professor McGonagall
-2           Tom Bombadi  10          true             1           2           Professor Snape
-2           Tom Bombadi  10          true             1           3           Professor Moriarty
-3           Dead Pool    10          false            3           1           Professor McGonagall
-3           Dead Pool    10          false            3           2           Professor Snape
-3           Dead Pool    10          false            3           3           Professor Moriarty
-4           Mal Reynold  12          true             2           1           Professor McGonagall
+2           Tom Bombadi  10          true             1           1           Professor McGon
+3           Dead Pool    10          false            3           3           Professor Moria
 4           Mal Reynold  12          true             2           2           Professor Snape
-4           Mal Reynold  12          true             2           3           Professor Moriarty
-5           Arya Stark   8           true             3           1           Professor McGonagall
-5           Arya Stark   8           true             3           2           Professor Snape
-5           Arya Stark   8           true             3           3           Professor Moriarty
-6           Jake Finn    9           true             1           1           Professor McGonagall
-6           Jake Finn    9           true             1           2           Professor Snape
-6           Jake Finn    9           true             1           3           Professor Moriarty
+5           Arya Stark   8           true             3           3           Professor Moria
 
 
 4. Display a narrower selection of columns (fewer columns than all of them, in other words) from both tables using one query.
-sqlite> SELECT students.name, students.grade, teachers.name FROM students INNER JOIN teachers ON students.teacher_id=teachers.id;
+sqlite> SELECT students.name, students.grade, teachers.name FROM students JOIN teachers ON students.teacher_id=teachers.id;
 name         grade       name
 -----------  ----------  ---------------
 Amelia Pond  11          Professor Snape
@@ -51,4 +38,34 @@ Jake Finn    9           Professor McGon
 5. Delete an item that meets some condition (you can choose a condition that makes sense).
 sqlite> DELETE FROM students WHERE name="Jake Finn";
 sqlite>
+
+
+6. Try a few different joins in your database:
+sqlite> SELECT students.name FROM students LEFT JOIN teachers ON students.teacher_id=teachers.id;
+name
+-----------
+Amelia Pond
+Tom Bombadi
+Dead Pool
+Mal Reynold
+Arya Stark
+
+sqlite> SELECT teachers.name FROM teachers INNER JOIN students ON students.teacher_id=teachers.id;
+name
+---------------
+Professor Snape
+Professor McGon
+Professor Moria
+Professor Snape
+Professor Moria
+
+sqlite> SELECT students.name, students.permission_slip, teachers.name FROM teachers JOIN students ON students.teacher_id=teachers.id;
+name         permission_slip  name
+-----------  ---------------  ---------------
+Amelia Pond  false            Professor Snape
+Tom Bombadi  true             Professor McGon
+Dead Pool    false            Professor Moria
+Mal Reynold  true             Professor Snape
+Arya Stark   true             Professor Moria
+
 
