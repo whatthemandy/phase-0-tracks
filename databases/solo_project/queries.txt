@@ -6,9 +6,11 @@ id          name
 2           Professor Snape
 3           Professor Moriarty
 
+
 2. Update an item that meets some condition (you can choose a condition that makes sense).
 sqlite> UPDATE students SET grade=10 WHERE name="Tom Bombadil";
 sqlite>
+
 
 3. Display the information in both tables using one query.
 sqlite> SELECT * FROM students, teachers;
@@ -33,9 +35,20 @@ id          name         grade       permission_slip  teacher_id  id          na
 6           Jake Finn    9           true             1           2           Professor Snape
 6           Jake Finn    9           true             1           3           Professor Moriarty
 
+
 4. Display a narrower selection of columns (fewer columns than all of them, in other words) from both tables using one query.
+sqlite> SELECT students.name, students.grade, teachers.name FROM students INNER JOIN teachers ON students.teacher_id=teachers.id;
+name         grade       name
+-----------  ----------  ---------------
+Amelia Pond  11          Professor Snape
+Tom Bombadi  10          Professor McGon
+Dead Pool    10          Professor Moria
+Mal Reynold  12          Professor Snape
+Arya Stark   8           Professor Moria
+Jake Finn    9           Professor McGon
 
 
 5. Delete an item that meets some condition (you can choose a condition that makes sense).
-
+sqlite> DELETE FROM students WHERE name="Jake Finn";
+sqlite>
 
