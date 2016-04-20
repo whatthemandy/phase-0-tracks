@@ -1,0 +1,27 @@
+- You've joined two tables before. How do you join three?:
+
+sqlite> SELECT * FROM users JOIN businesses ON reviews.user_id=users.id JOIN reviews ON reviews.business_id=businesses.id;
+id          first_name       last_name   id          name                  id          stars       comment      business_id  user_id
+----------  ---------------  ----------  ----------  --------------------  ----------  ----------  -----------  -----------  ----------
+4           Steven           Wonder      3           The Beagle Nightclub  1           5           Great food!  3            4
+2           Mandy            Kaling      1           Grundy Hollow Weddin  2           3           Not bad      1            2
+1           Bradford         Pitt        2           Amir's Towing         3           1           Bad beer     2            1
+
+
+
+- There are some repetitive columns if we choose to view all fields. Choose instead to just view the user's names, the business name, the star rating, and the comment:
+
+sqlite> SELECT users.first_name, users.last_name, businesses.name, reviews.stars, reviews.comment FROM users JOIN businesses ON reviews.user_id=users.id JOIN reviews ON reviews.business_id=businesses.id;
+first_name  last_name        name                  stars       comment
+----------  ---------------  --------------------  ----------  -----------
+Steven      Wonder           The Beagle Nightclub  5           Great food!
+Mandy       Kaling           Grundy Hollow Weddin  3           Not bad
+Bradford    Pitt             Amir's Towing         1           Bad beer
+
+
+
+- How do you view the data of all three tables for just one particular business?
+sqlite> SELECT * FROM businesses JOIN users ON reviews.user_id=users.id JOIN reviews ON reviews.business_id=businesses.id WHERE businesses.name="The Beagle Nightclub";
+id          name             id          first_name  last_name   id          stars       comment      business_id  user_id
+----------  ---------------  ----------  ----------  ----------  ----------  ----------  -----------  -----------  ----------
+3           The Beagle Nigh  4           Steven      Wonder      1           5           Great food!  3            4
