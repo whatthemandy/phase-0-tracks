@@ -49,16 +49,35 @@ def add(db)
   create_book(db, title, author, read, rating, comment)
 end
 
-def view(db)
-  all = db.execute("SELECT * FROM books")
-  all.each do |book|
-    puts "Title: #{book['title']}"
-    puts "Author: #{book['author']}"
-    puts "Read Yet?: #{book['read']}"
-    puts "Rating: #{book['rating']}"
-    puts "Comments: #{book['comment']}\n\n"
-  end
+def view_all(db)
+  # puts "Enter book title or 'all' to view all books:"
+  # input = gets.chomp
+  # if input == "all"
+    puts "BOOK LOG:\n\n"
+    all = db.execute("SELECT * FROM books")
+    all.each do |book|
+      puts "Title: #{book['title']}"
+      puts "Author: #{book['author']}"
+      puts "Read Yet?: #{book['read']}"
+      puts "Rating: #{book['rating']}"
+      puts "Comments: #{book['comment']}\n\n"
+    end
 end
+
+def view_one(db, choice)
+    puts "BOOK LOG:\n\n"
+    book = db.execute("SELECT * FROM books WHERE title = ?" [choice])
+    book.each do |info|
+      puts "Title: #{info['title']}"
+      puts "Author: #{info['author']}"
+      puts "Read Yet?: #{info['read']}"
+      puts "Rating: #{info['rating']}"
+      puts "Comments: #{info['comment']}\n\n"
+    end
+end
+
+# view_one(db, "The Book Thief")
+
 
 # User interface:
 
@@ -67,9 +86,17 @@ puts "What would you like to do?"
 puts "Please enter 'add', to add a new book, 'update' to update an existing book, or 'view' to view your book log:"
 input = gets.chomp
 
-if input=="add"
+if input == "add"
   add(db)
-elsif input=="view"
-  view(db)
-else
+elsif input == "view"
+  puts "Enter book title or 'all' to view all books:"
+  choice = gets.chomp
+  # choice = choice.to_s
+    if choice == "all"
+      view_all(db)
+    else
+      view_one(db, choice)
+    end
 end
+
+
