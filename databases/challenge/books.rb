@@ -30,14 +30,9 @@ def add(db)
   puts "Please enter author's name:"
   author = gets.chomp
 
-  # puts "Please enter author's last name:"
-  # author_ln = gets.chomp
-
-  # puts "Please enter book genre:"
-  # genre = gets.chomp
-
   puts "Have you read this book yet? (yes/no)"
   read = gets.chomp
+  read = read.capitalize
     # if input == "Yes" || input == "yes" || input == "y"
     #   read = true
     # else
@@ -57,14 +52,19 @@ end
 def view(db)
   all = db.execute("SELECT * FROM books")
   all.each do |book|
-    puts "#{book['title']}"
+    puts "Title: #{book['title']}"
+    puts "Author: #{book['author']}"
+    puts "Read Yet?: #{book['read']}"
+    puts "Rating: #{book['rating']}"
+    puts "Comments: #{book['comment']}\n\n"
   end
 end
 
-
+# User interface:
 
 puts "Welcome to your book log!"
-puts "What would you like to do?  Add a new book, update an existing one, or view all?  Please enter 'add', 'update', or 'view':"
+puts "What would you like to do?"
+puts "Please enter 'add', to add a new book, 'update' to update an existing book, or 'view' to view your book log:"
 input = gets.chomp
 
 if input=="add"
