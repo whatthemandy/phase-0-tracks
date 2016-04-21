@@ -24,35 +24,43 @@ def create_book(db, title, author_fn, author_ln, genre, read, rating, comment)
   db.execute("INSERT INTO books (title, author_fn, author_ln, genre, read, rating, comment) VALUES (?, ?, ?, ?, ?, ?, ?)", [title, author_fn, author_ln, genre, read, rating, comment])
 end
 
+def add(db)
+  puts "Please enter title:"
+  title = gets.chomp
+
+  puts "Please enter author's first/middle name:"
+  author_fn = gets.chomp
+
+  puts "Please enter author's last name:"
+  author_ln = gets.chomp
+
+  puts "Please enter book genre:"
+  genre = gets.chomp
+
+  puts "Have you read this book yet? (yes/no)"
+  read = gets.chomp
+    # if input == "Yes" || input == "yes" || input == "y"
+    #   read = true
+    # else
+    #   read = false
+    # end
+
+  puts "Please enter rating (1-5, or 0 if not yet read):"
+  rating = gets.chomp
+  rating = rating.to_i
+
+  puts "Please enter any comments about book:"
+  comment = gets.chomp
+
+  create_book(db, title, author_fn, author_ln, genre, read, rating, comment)
+end
+
+
 puts "Welcome to your book log!"
-# puts "What would you like to do?  Add, update, or view?"
+puts "What would you like to do?  Add a new book, update an existing one, or view all?"
+input = gets.chomp
 
-puts "Add a new book! Please enter title:"
-title = gets.chomp
-
-puts "Please enter author's first/middle name:"
-author_fn = gets.chomp
-
-puts "Please enter author's last name:"
-author_ln = gets.chomp
-
-puts "Please enter book genre:"
-genre = gets.chomp
-
-puts "Have you read this book yet? (yes/no)"
-read = gets.chomp
-  # if input == "Yes" || input == "yes" || input == "y"
-  #   read = true
-  # else
-  #   read = false
-  # end
-
-puts "Please enter rating (1-5, or 0 if not yet read):"
-rating = gets.chomp
-rating = rating.to_i
-
-puts "Please enter any comments about book:"
-comment = gets.chomp
-
-create_book(db, title, author_fn, author_ln, genre, read, rating, comment)
-
+if input=="add"
+  add(db)
+else
+end
