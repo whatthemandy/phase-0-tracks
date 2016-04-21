@@ -1,6 +1,7 @@
 require 'sqlite3'
 
 db = SQLite3::Database.new("books.db")
+db.results_as_hash = true
 
 create_table_cmd = <<-SQL
   CREATE TABLE IF NOT EXISTS books(
@@ -55,12 +56,22 @@ def add(db)
   create_book(db, title, author_fn, author_ln, genre, read, rating, comment)
 end
 
+def view(db)
+  all = db.execute("SELECT * FROM books")
+  all.each do |book|
+    puts "#{book['title']}"
+  end
+end
+
+
 
 puts "Welcome to your book log!"
-puts "What would you like to do?  Add a new book, update an existing one, or view all?"
+puts "What would you like to do?  Add a new book, update an existing one, or view all?  Please enter 'add', 'update', or 'view':"
 input = gets.chomp
 
 if input=="add"
   add(db)
+elsif input=="view"
+  view(db)
 else
 end
