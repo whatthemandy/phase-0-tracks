@@ -9,19 +9,19 @@ create_table_cmd = <<-SQL
     author_fn VARCHAR(255),
     author_ln VARCHAR(255),
     genre VARCHAR(255),
+    read VARCHAR(255),
     rating INT,
-    comment VARCHAR(255),
-    read VARCHAR(255) #changed to string from boolean
+    comment VARCHAR(255)
     )
 SQL
 
 db.execute(create_table_cmd)
 
 # add test book
-# db.execute("INSERT INTO books (title, author_fn, author_ln, genre, rating, comment, read) VALUES ('Enders Game', 'Orson Scott', 'Card', 'Science Fiction', 5, 'Sooo good', 'true')")
+# db.execute("INSERT INTO books (title, author_fn, author_ln, genre, read, rating, comment) VALUES ('Enders Game', 'Orson Scott', 'Card', 'Science Fiction', 'yes', 5, 'Incredible!')")
 
-def create_book(db, title, author_fn, author_ln, genre, rating, comment, read)
-  db.execute("INSERT INTO books (title, author_fn, author_ln, genre, rating, comment, read) VALUES (?, ?, ?, ?, ?, ?, ?)", [title, author_fn, author_ln, genre, rating, comment, read])
+def create_book(db, title, author_fn, author_ln, genre, read, rating, comment)
+  db.execute("INSERT INTO books (title, author_fn, author_ln, genre, read, rating, comment) VALUES (?, ?, ?, ?, ?, ?, ?)", [title, author_fn, author_ln, genre, read, rating, comment])
 end
 
 puts "Welcome to your book log!"
@@ -54,16 +54,5 @@ rating = rating.to_i
 puts "Please enter any comments about book:"
 comment = gets.chomp
 
-create_book(db, title, author_fn, author_ln, genre, rating, comment, read)
-
-
-
-
-
-
-
-
-
-
-
+create_book(db, title, author_fn, author_ln, genre, read, rating, comment)
 
