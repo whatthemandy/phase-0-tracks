@@ -65,9 +65,6 @@ end
 
 # method to view all books:
 def view_all(db)
-  # puts "Enter book title or 'all' to view all books:"
-  # input = gets.chomp
-  # if input == "all"
     puts "BOOK LOG:\n\n"
     all = db.execute("SELECT * FROM books")
     all.each do |book|
@@ -79,7 +76,7 @@ def view_all(db)
     end
 end
 
-# method to update
+# method to update title:
 def update_title(db, choice, change)
   db.execute("UPDATE books SET title = ? WHERE title = ?", [change, choice])
 end
@@ -106,47 +103,52 @@ end
 
 # User interface:
 
-puts "Welcome to your book log!"
-puts "What would you like to do?"
+puts "Welcome to your book log!  What would you like to do?"
+
+input = ""
+until input == "done"
 puts "Please enter 'add', to add a new book, 'update' to update an existing book, or 'view' to view your book log:"
 input = gets.chomp
 
-if input == "add"
-  add(db)
+  if input == "add"
+    add(db)
 
-elsif input == "view"
-  puts "Enter book title or 'all' to view all books:"
-  choice = gets.chomp
-    if choice == "all"
-      view_all(db)
-    else
-      view_one(db, choice)
-    end
+  elsif input == "view"
+    puts "Enter book title or 'all' to view all books:"
+    choice = gets.chomp
+      if choice == "all"
+        view_all(db)
+      else
+        view_one(db, choice)
+      end
 
-elsif input == "update"
-  puts "Enter title of book to be updated:"
-  choice = gets.chomp
-  puts "What needs to be updated?  Enter 'title', 'author', 'read status', 'rating', or 'comments':"
-  input = gets.chomp
-    if input == "title"
-      puts "What should it be changed to?"
-      change = gets.chomp
-      update_title(db, choice, change)
-    elsif input == "author"
-      puts "What should it be changed to?"
-      change = gets.chomp
-      update_author(db, choice, change)
-    elsif input == "read status"
-      puts "What should it be changed to?"
-      change = gets.chomp
-      update_read_status(db, choice, change)
-    elsif input == "rating"
-      puts "What should it be changed to?"
-      change = gets.chomp
-      update_rating(db, choice, change)
-    elsif input == "comments"
-      puts "What should it be changed to?"
-      change = gets.chomp
-      update_comment(db, choice, change)
-    end
+  elsif input == "update"
+    puts "Enter title of book to be updated:"
+    choice = gets.chomp
+    puts "What needs to be updated?  Enter 'title', 'author', 'read status',   'rating', or 'comments':"
+    input = gets.chomp
+      if input == "title"
+        puts "What should it be changed to?"
+        change = gets.chomp
+        update_title(db, choice, change)
+      elsif input == "author"
+        puts "What should it be changed to?"
+        change = gets.chomp
+        update_author(db, choice, change)
+      elsif input == "read status"
+        puts "What should it be changed to?"
+        change = gets.chomp
+        update_read_status(db, choice, change)
+      elsif input == "rating"
+        puts "What should it be changed to?"
+        change = gets.chomp
+        update_rating(db, choice, change)
+      elsif input == "comments"
+        puts "What should it be changed to?"
+        change = gets.chomp
+        update_comment(db, choice, change)
+      end
+  end
 end
+
+puts "Happy reading!"
