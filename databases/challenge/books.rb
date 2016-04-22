@@ -17,7 +17,7 @@ SQL
 db.execute(create_table_cmd)
 
 # add test book
-# db.execute("INSERT INTO books (title, author, read, rating, comment) VALUES ('Enders Game', 'Orson Scott Card', 'yes', 5, 'Incredible!')")
+# db.execute("INSERT INTO books (title, author, read, rating, comment) VALUES ('Enders Game', 'Orson Scott Card', 'yes', 5, 'Holy Guacamole! A+!')")
 
 def create_book(db, title, author, read, rating, comment)
   db.execute("INSERT INTO books (title, author, read, rating, comment) VALUES (?, ?, ?, ?, ?)", [title, author, read, rating, comment])
@@ -105,7 +105,7 @@ end
 
 # User interface:
 
-puts "Welcome to your book log!  What would you like to do?"
+puts "Welcome to your book log!"
 
 input = ""
 until input == "done"
@@ -132,7 +132,8 @@ input = gets.chomp
   elsif input == "update"
     puts "Enter title of book to be updated:"
     choice = gets.chomp
-    puts "What needs to be updated?  Enter 'title', 'author', 'read status', 'rating', or 'comments':"
+    puts "What needs to be updated?  Enter one of the following:"
+    puts "  'title', 'author', 'read status', 'rating', or 'comment':"
     input = gets.chomp
       if input == "title"
         puts "What should it be changed to?"
@@ -150,11 +151,13 @@ input = gets.chomp
         puts "What should it be changed to?"
         change = gets.chomp
         update_rating(db, choice, change)
-      elsif input == "comments"
+      elsif input == "comment"
         puts "What should it be changed to?"
         change = gets.chomp
         update_comment(db, choice, change)
       end
+  else
+    puts "Please try again."
   end
 end
 
