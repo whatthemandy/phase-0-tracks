@@ -23,6 +23,7 @@ def create_book(db, title, author, read, rating, comment)
   db.execute("INSERT INTO books (title, author, read, rating, comment) VALUES (?, ?, ?, ?, ?)", [title, author, read, rating, comment])
 end
 
+# method to add new book:
 def add(db)
   puts "Please enter title:"
   title = gets.chomp
@@ -49,6 +50,20 @@ def add(db)
   create_book(db, title, author, read, rating, comment)
 end
 
+# method to view one book:
+def view_one(db, choice)
+    puts "BOOK LOG:\n\n"
+    book = db.execute("SELECT * FROM books WHERE title = ?", [choice])
+    book.each do |info|
+      puts "Title: #{info['title']}"
+      puts "Author: #{info['author']}"
+      puts "Read Yet?: #{info['read']}"
+      puts "Rating: #{info['rating']}"
+      puts "Comments: #{info['comment']}\n\n"
+    end
+end
+
+# method to view all books:
 def view_all(db)
   # puts "Enter book title or 'all' to view all books:"
   # input = gets.chomp
@@ -64,20 +79,30 @@ def view_all(db)
     end
 end
 
-def view_one(db, choice)
-    puts "BOOK LOG:\n\n"
-    book = db.execute("SELECT * FROM books WHERE title = ?" [choice])
-    book.each do |info|
-      puts "Title: #{info['title']}"
-      puts "Author: #{info['author']}"
-      puts "Read Yet?: #{info['read']}"
-      puts "Rating: #{info['rating']}"
-      puts "Comments: #{info['comment']}\n\n"
-    end
+# method to update
+def update_title(db, choice, change)
+  db.execute("UPDATE books SET title = ? WHERE title = ?", [change, choice])
 end
 
-# view_one(db, "The Book Thief")
+# method to update author:
+def update_author(db, choice, change)
+  db.execute("UPDATE books SET author = ? WHERE title = ?", [change, choice])
+end
 
+# method to update read-status:
+def update_read_status(db, choice, change)
+  db.execute("UPDATE books SET read = ? WHERE title = ?", [change, choice])
+end
+
+# method to update rating:
+def update_rating(db, choice, change)
+  db.execute("UPDATE books SET rating = ? WHERE title = ?", [change, choice])
+end
+
+# method to update comment:
+def update_comment(db, choice, change)
+  db.execute("UPDATE books SET comment = ? WHERE title = ?", [change, choice])
+end
 
 # User interface:
 
@@ -88,15 +113,40 @@ input = gets.chomp
 
 if input == "add"
   add(db)
+
 elsif input == "view"
   puts "Enter book title or 'all' to view all books:"
   choice = gets.chomp
-  # choice = choice.to_s
     if choice == "all"
       view_all(db)
     else
       view_one(db, choice)
     end
+
+elsif input == "update"
+  puts "Enter title of book to be updated:"
+  choice = gets.chomp
+  puts "What needs to be updated?  Enter 'title', 'author', 'read status', 'rating', or 'comments':"
+  input = gets.chomp
+    if input == "title"
+      puts "What should it be changed to?"
+      change = gets.chomp
+      update_title(db, choice, change)
+    elsif input == "author"
+      puts "What should it be changed to?"
+      change = gets.chomp
+      update_author(db, choice, change)
+    elsif input == "read status"
+      puts "What should it be changed to?"
+      change = gets.chomp
+      update_read_status(db, choice, change)
+    elsif input == "rating"
+      puts "What should it be changed to?"
+      change = gets.chomp
+      update_rating(db, choice, change)
+    elsif input == "comments"
+      puts "What should it be changed to?"
+      change = gets.chomp
+      update_comment(db, choice, change)
+    end
 end
-
-
