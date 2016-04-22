@@ -52,6 +52,7 @@ end
 
 # method to view one book:
 def view_one(db, choice)
+    puts "------------------------------" #for easier readability
     puts "BOOK LOG:\n\n"
     book = db.execute("SELECT * FROM books WHERE title = ?", [choice])
     book.each do |info|
@@ -65,6 +66,7 @@ end
 
 # method to view all books:
 def view_all(db)
+    puts "------------------------------" #for easier readability
     puts "BOOK LOG:\n\n"
     all = db.execute("SELECT * FROM books")
     all.each do |book|
@@ -107,7 +109,12 @@ puts "Welcome to your book log!  What would you like to do?"
 
 input = ""
 until input == "done"
-puts "Please enter 'add', to add a new book, 'update' to update an existing book, or 'view' to view your book log:"
+puts "------------------------------" #for easier readability
+puts "  To add a new book, enter 'add',"
+puts "  To update an existing book, enter 'update',"
+puts "  To view book details, enter 'view',"
+puts "  When finished, enter 'done'."
+
 input = gets.chomp
 
   if input == "add"
@@ -125,7 +132,7 @@ input = gets.chomp
   elsif input == "update"
     puts "Enter title of book to be updated:"
     choice = gets.chomp
-    puts "What needs to be updated?  Enter 'title', 'author', 'read status',   'rating', or 'comments':"
+    puts "What needs to be updated?  Enter 'title', 'author', 'read status', 'rating', or 'comments':"
     input = gets.chomp
       if input == "title"
         puts "What should it be changed to?"
