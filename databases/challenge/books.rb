@@ -66,7 +66,8 @@ end
 # method to view all unread book titles
 def view_unread(db)
     puts "----------------------------------------" #for easier readability
-    puts "UNREAD TITLES:\n\n"
+    puts "UNREAD TITLES:"
+    puts "Here are some great books you've been meaning to read!\n\n"
     all = db.execute("SELECT * FROM books WHERE read = 'false'")
     all.each do |book|
       puts "Title: #{book['title']}"
@@ -76,7 +77,8 @@ end
 # method to view all books:
 def view_all(db)
     puts "----------------------------------------" #for easier readability
-    puts "BOOK LOG:\n\n"
+    puts "BOOK LOG:"
+    puts "So many beautiful books!\n\n"
     all = db.execute("SELECT * FROM books")
     all.each do |book|
       puts "Title: #{book['title']}"
@@ -190,7 +192,7 @@ input = gets.chomp
     break
 
   else
-    puts "Please try again!"
+    puts "Oops! Please try again."
     redo
 
   end
