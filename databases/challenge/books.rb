@@ -98,7 +98,7 @@ def view_rating(db)
     puts "----------------------------------------" #for easier readability
     puts "BOOK LOG:"
     puts "So many beautiful books!\n\n"
-    all = db.execute("SELECT * FROM books ORDER BY rating DESC")
+    all = db.execute("SELECT * FROM books WHERE rating<>0 ORDER BY rating DESC")
     all.each do |book|
       puts "Title: #{book['title']}"
       puts "Author: #{book['author']}"
