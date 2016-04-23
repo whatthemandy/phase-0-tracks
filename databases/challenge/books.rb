@@ -1,3 +1,9 @@
+# I split the book titles into another table but couldn't figure out how to
+# print the data from the two tables at the same time (the book title from one
+# table along with the book info from the other table).  After further thought,
+# I don't think splitting the book title into the other table is the right way to
+# go, so after this commit I'm reverting back to before the split.
+
 require 'sqlite3'
 
 db = SQLite3::Database.new("books.db")
@@ -199,3 +205,4 @@ input = gets.chomp
 end
 
 puts "Happy reading!"
+
