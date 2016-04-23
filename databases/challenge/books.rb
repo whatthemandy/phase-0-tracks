@@ -17,7 +17,7 @@ SQL
 db.execute(create_table_cmd)
 
 # add test book
-db.execute("INSERT INTO books (title, author, read, rating, comment) VALUES ('Enders Game', 'Orson Scott Card', 'true', 5, 'Holy Guacamole! A+!')")
+# db.execute("INSERT INTO books (title, author, read, rating, comment) VALUES ('Enders Game', 'Orson Scott Card', 'true', 5, 'Holy Guacamole! A+!')")
 
 def create_book(db, title, author, read, rating, comment)
   db.execute("INSERT INTO books (title, author, read, rating, comment) VALUES (?, ?, ?, ?, ?)", [title, author, read, rating, comment])
@@ -74,12 +74,27 @@ def view_unread(db)
     end
 end
 
-# method to view all books:
+# method to view all books sorted by title:
 def view_all(db)
     puts "----------------------------------------" #for easier readability
     puts "BOOK LOG:"
     puts "So many beautiful books!\n\n"
     all = db.execute("SELECT * FROM books ORDER BY title")
+    all.each do |book|
+      puts "Title: #{book['title']}"
+      puts "Author: #{book['author']}"
+      puts "Already Read?: #{book['read']}"
+      puts "Rating: #{book['rating']}"
+      puts "Comments: #{book['comment']}\n\n"
+    end
+end
+
+# method to view all books sorted by rating:
+def view_rating(db)
+    puts "----------------------------------------" #for easier readability
+    puts "BOOK LOG:"
+    puts "So many beautiful books!\n\n"
+    all = db.execute("SELECT * FROM books ORDER BY rating DESC")
     all.each do |book|
       puts "Title: #{book['title']}"
       puts "Author: #{book['author']}"
@@ -137,12 +152,14 @@ input = gets.chomp
     add(db)
 
   elsif input == "view"
-    puts "Enter specific book title for one book's details, 'unread' to see all unread titles, or 'all' to view details for all books:"
+    puts "Enter specific book title for one book's details, 'unread' to see all unread titles, 'all' to view details for all books (sorted by title), or 'rating' to see details of all books (sorted by rating):"
     choice = gets.chomp
       if choice == "all"
         view_all(db)
       elsif choice == "unread"
         view_unread(db)
+      elsif choice == "rating"
+        view_rating(db)
       else
         view_one(db, choice)
       end
