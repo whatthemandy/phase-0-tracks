@@ -34,9 +34,9 @@ def add_book(db, title)
   db.execute("INSERT INTO books (title) VALUES (?)", [title])
 end
 
-def add_info(db, author, read, rating, comment, book_id)
-  db.execute("INSERT INTO info (author, read, rating, comment, book_id) VALUES (?, ?, ?, ?, ?)", [author, read, rating, comment, book_id])
-end
+# def add_info(db, author, read, rating, comment, book_id)
+#   db.execute("INSERT INTO info (author, read, rating, comment, book_id) VALUES (?, ?, ?, ?, ?)", [author, read, rating, comment, book_id])
+# end
 
 
 # method to add new book:
@@ -70,7 +70,8 @@ def enter(db)
   puts "Please enter any comments about book:"
   comment = gets.chomp
 
-  add_info(db, author, read, rating, comment, book_id)
+  db.execute("INSERT INTO info (author, read, rating, comment, book_id) VALUES (?, ?, ?, ?, ?)", [author, read, rating, comment, book_id])
+
 end
 
 # method to view one book:
@@ -87,17 +88,17 @@ def view_one(db, choice)
     end
 end
 
-# method to view all books:
+# method to view all books - no longer works because I don't know how to interpolate from both tables at once
 def view_all(db)
     puts "------------------------------" #for easier readability
     puts "BOOK LOG:\n\n"
-    all = db.execute("SELECT * FROM books")
+    all = db.execute("SELECT * FROM info JOIN books ON info.book_id = books.id")
     all.each do |book|
-      puts "Title: #{book['title']}"
-      puts "Author: #{book['author']}"
-      puts "Read Yet?: #{book['read']}"
-      puts "Rating: #{book['rating']}"
-      puts "Comments: #{book['comment']}\n\n"
+      puts "Title: #{books['title']}"
+      puts "Author: #{books['author']}"
+      puts "Read Yet?: #{books['read']}"
+      puts "Rating: #{books['rating']}"
+      puts "Comments: #{books['comment']}\n\n"
     end
 end
 
