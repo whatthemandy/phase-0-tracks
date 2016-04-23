@@ -17,7 +17,7 @@ SQL
 db.execute(create_table_cmd)
 
 # add test book
-db.execute("INSERT INTO books (title, author, read, rating, comment) VALUES ('Enders Game', 'Orson Scott Card', 'true', 5, 'Holy Guacamole! A+!')")
+# db.execute("INSERT INTO books (title, author, read, rating, comment) VALUES ('Enders Game', 'Orson Scott Card', 'true', 5, 'Holy Guacamole! A+!')")
 
 def create_book(db, title, author, read, rating, comment)
   db.execute("INSERT INTO books (title, author, read, rating, comment) VALUES (?, ?, ?, ?, ?)", [title, author, read, rating, comment])
@@ -42,6 +42,10 @@ def add(db)
   puts "Please enter rating (1-5, or 0 if not yet read):"
   rating = gets.chomp
   rating = rating.to_i
+  if rating == 0
+    rating = nil
+  else
+  end
 
   puts "Please enter any comments about book:"
   comment = gets.chomp
@@ -68,18 +72,33 @@ def view_unread(db)
     puts "----------------------------------------" #for easier readability
     puts "UNREAD TITLES:"
     puts "Here are some great books you've been meaning to read!\n\n"
-    all = db.execute("SELECT * FROM books WHERE read = 'false'")
+    all = db.execute("SELECT * FROM books WHERE read = 'false' ORDER BY title")
     all.each do |book|
       puts "Title: #{book['title']}"
     end
 end
 
-# method to view all books:
+# method to view all books sorted by title:
 def view_all(db)
     puts "----------------------------------------" #for easier readability
     puts "BOOK LOG:"
     puts "So many beautiful books!\n\n"
-    all = db.execute("SELECT * FROM books")
+    all = db.execute("SELECT * FROM books ORDER BY title")
+    all.each do |book|
+      puts "Title: #{book['title']}"
+      puts "Author: #{book['author']}"
+      puts "Already Read?: #{book['read']}"
+      puts "Rating: #{book['rating']}"
+      puts "Comments: #{book['comment']}\n\n"
+    end
+end
+
+# method to view all books sorted by rating:
+def view_rating(db)
+    puts "----------------------------------------" #for easier readability
+    puts "BOOK LOG:"
+    puts "So many beautiful books!\n\n"
+    all = db.execute("SELECT * FROM books WHERE rating<>0 ORDER BY rating DESC")
     all.each do |book|
       puts "Title: #{book['title']}"
       puts "Author: #{book['author']}"
@@ -137,12 +156,14 @@ input = gets.chomp
     add(db)
 
   elsif input == "view"
-    puts "Enter specific book title for one book's details, 'unread' to see all unread titles, or 'all' to view details for all books:"
+    puts "Enter specific book title for one book's details, 'unread' to see all unread titles, 'rating' to see details of all read books (sorted by rating), or 'all' to view details of all books (sorted by title):"
     choice = gets.chomp
       if choice == "all"
         view_all(db)
       elsif choice == "unread"
         view_unread(db)
+      elsif choice == "rating"
+        view_rating(db)
       else
         view_one(db, choice)
       end
@@ -176,8 +197,22 @@ input = gets.chomp
           end
         update_read_status(db, choice, correction)
       elsif input == "rating"
+        # also update read-status in case rating is changing from zero
+        puts "Have you read this book yet?"
+        correction = gets.chomp
+          if correction == "Yes" || correction == "yes" || correction == "y"
+            correction = 'true'
+          else
+            correction = 'false'
+          end
+        update_read_status(db, choice, correction)
+
         puts "What is the correct rating?"
         correction = gets.chomp
+          if correction == 0
+            correction = nil #I don't think this works
+          else
+          end
         update_rating(db, choice, correction)
       elsif input == "comment"
         puts "What should the new comment be?"
