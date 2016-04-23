@@ -17,7 +17,7 @@ SQL
 db.execute(create_table_cmd)
 
 # add test book
-# db.execute("INSERT INTO books (title, author, read, rating, comment) VALUES ('Enders Game', 'Orson Scott Card', 'true', 5, 'Holy Guacamole! A+!')")
+db.execute("INSERT INTO books (title, author, read, rating, comment) VALUES ('Enders Game', 'Orson Scott Card', 'true', 5, 'Holy Guacamole! A+!')")
 
 def create_book(db, title, author, read, rating, comment)
   db.execute("INSERT INTO books (title, author, read, rating, comment) VALUES (?, ?, ?, ?, ?)", [title, author, read, rating, comment])
@@ -95,28 +95,28 @@ def remove(db, choice)
 end
 
 # method to update title:
-def update_title(db, choice, change)
-  db.execute("UPDATE books SET title = ? WHERE title = ?", [change, choice])
+def update_title(db, choice, correction)
+  db.execute("UPDATE books SET title = ? WHERE title = ?", [correction, choice])
 end
 
 # method to update author:
-def update_author(db, choice, change)
-  db.execute("UPDATE books SET author = ? WHERE title = ?", [change, choice])
+def update_author(db, choice, correction)
+  db.execute("UPDATE books SET author = ? WHERE title = ?", [correction, choice])
 end
 
 # method to update read-status:
-def update_read_status(db, choice, change)
-  db.execute("UPDATE books SET read = ? WHERE title = ?", [change, choice])
+def update_read_status(db, choice, correction)
+  db.execute("UPDATE books SET read = ? WHERE title = ?", [correction, choice])
 end
 
 # method to update rating:
-def update_rating(db, choice, change)
-  db.execute("UPDATE books SET rating = ? WHERE title = ?", [change, choice])
+def update_rating(db, choice, correction)
+  db.execute("UPDATE books SET rating = ? WHERE title = ?", [correction, choice])
 end
 
 # method to update comment:
-def update_comment(db, choice, change)
-  db.execute("UPDATE books SET comment = ? WHERE title = ?", [change, choice])
+def update_comment(db, choice, correction)
+  db.execute("UPDATE books SET comment = ? WHERE title = ?", [correction, choice])
 end
 
 # User interface:
@@ -141,7 +141,7 @@ input = gets.chomp
     choice = gets.chomp
       if choice == "all"
         view_all(db)
-      elsif choice = "unread"
+      elsif choice == "unread"
         view_unread(db)
       else
         view_one(db, choice)
@@ -160,29 +160,29 @@ input = gets.chomp
     input = gets.chomp
       if input == "title"
         puts "What is the correct title?"
-        change = gets.chomp
-        update_title(db, choice, change)
+        correction = gets.chomp
+        update_title(db, choice, correction)
       elsif input == "author"
         puts "What is the correct author?"
-        change = gets.chomp
-        update_author(db, choice, change)
+        correction = gets.chomp
+        update_author(db, choice, correction)
       elsif input == "read status"
         puts "Have you read this book yet?"
-        change = gets.chomp
-          if change == "Yes" || change == "yes" || change == "y"
-            change = 'true'
+        correction = gets.chomp
+          if correction == "Yes" || correction == "yes" || correction == "y"
+            correction = 'true'
           else
-            change = 'false'
+            correction = 'false'
           end
-        update_read_status(db, choice, change)
+        update_read_status(db, choice, correction)
       elsif input == "rating"
         puts "What is the correct rating?"
-        change = gets.chomp
-        update_rating(db, choice, change)
+        correction = gets.chomp
+        update_rating(db, choice, correction)
       elsif input == "comment"
         puts "What should the new comment be?"
-        change = gets.chomp
-        update_comment(db, choice, change)
+        correction = gets.chomp
+        update_comment(db, choice, correction)
       else
         puts "Oops! Please try again."
         redo
