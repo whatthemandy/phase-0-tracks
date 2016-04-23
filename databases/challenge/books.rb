@@ -78,6 +78,11 @@ def view_all(db)
     end
 end
 
+# method to remove book from log:
+def remove(db, choice)
+  db.execute("DELETE FROM books WHERE title = ?", [choice])
+end
+
 # method to update title:
 def update_title(db, choice, change)
   db.execute("UPDATE books SET title = ? WHERE title = ?", [change, choice])
@@ -113,6 +118,7 @@ puts "------------------------------" #for easier readability
 puts "  To add a new book, enter 'add',"
 puts "  To update an existing book, enter 'update',"
 puts "  To view book details, enter 'view',"
+puts "  To remove book from log, enter 'remove',"
 puts "  When finished, enter 'done'."
 
 input = gets.chomp
@@ -128,6 +134,11 @@ input = gets.chomp
       else
         view_one(db, choice)
       end
+
+  elsif input == "remove"
+    puts "Enter title of book to be removed:"
+    choice = gets.chomp
+    remove(db, choice)
 
   elsif input == "update"
     puts "Enter title of book to be updated:"
@@ -156,8 +167,6 @@ input = gets.chomp
         change = gets.chomp
         update_comment(db, choice, change)
       end
-  else
-    puts "Please try again."
   end
 end
 
