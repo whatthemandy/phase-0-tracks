@@ -8,7 +8,7 @@ create_table_cmd = <<-SQL
     id INTEGER PRIMARY KEY,
     title VARCHAR(255),
     author VARCHAR(255),
-    read VARCHAR(255),
+    read BOOLEAN,
     rating INT,
     comment VARCHAR(255)
     )
@@ -17,7 +17,7 @@ SQL
 db.execute(create_table_cmd)
 
 # add test book
-# db.execute("INSERT INTO books (title, author, read, rating, comment) VALUES ('Enders Game', 'Orson Scott Card', 'yes', 5, 'Holy Guacamole! A+!')")
+# db.execute("INSERT INTO books (title, author, read, rating, comment) VALUES ('Enders Game', 'Orson Scott Card', 'true', 5, 'Holy Guacamole! A+!')")
 
 def create_book(db, title, author, read, rating, comment)
   db.execute("INSERT INTO books (title, author, read, rating, comment) VALUES (?, ?, ?, ?, ?)", [title, author, read, rating, comment])
@@ -34,11 +34,11 @@ def add(db)
   puts "Have you read this book yet? (yes/no)"
   read = gets.chomp
   read = read.capitalize
-    # if input == "Yes" || input == "yes" || input == "y"
-    #   read = true
-    # else
-    #   read = false
-    # end
+    if input == "Yes" || input == "yes" || input == "y"
+      read = 'true'
+    else
+      read = 'false'
+    end
 
   puts "Please enter rating (1-5, or 0 if not yet read):"
   rating = gets.chomp
@@ -72,7 +72,7 @@ def view_all(db)
     all.each do |book|
       puts "Title: #{book['title']}"
       puts "Author: #{book['author']}"
-      puts "Read Yet?: #{book['read']}"
+      puts "Already Read?: #{book['read']}"
       puts "Rating: #{book['rating']}"
       puts "Comments: #{book['comment']}\n\n"
     end
