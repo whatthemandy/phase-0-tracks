@@ -17,7 +17,7 @@ SQL
 db.execute(create_table_cmd)
 
 # add test book
-db.execute("INSERT INTO books (title, author, read, rating, comment) VALUES ('Enders Game', 'Orson Scott Card', 'yes', 5, 'Holy Guacamole! A+!')")
+# db.execute("INSERT INTO books (title, author, read, rating, comment) VALUES ('Enders Game', 'Orson Scott Card', 'yes', 5, 'Holy Guacamole! A+!')")
 
 def create_book(db, title, author, read, rating, comment)
   db.execute("INSERT INTO books (title, author, read, rating, comment) VALUES (?, ?, ?, ?, ?)", [title, author, read, rating, comment])
@@ -166,8 +166,20 @@ input = gets.chomp
         puts "What should it be changed to?"
         change = gets.chomp
         update_comment(db, choice, change)
+      else
+        puts "Please try again!"
+        redo
       end
+
+  elsif input == "done"
+    break
+
+  else
+    puts "Please try again!"
+    redo
+
   end
+
 end
 
 puts "Happy reading!"
