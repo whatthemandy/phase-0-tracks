@@ -63,8 +63,9 @@ def view_one(db, choice)
     end
 end
 
+# method to view all unread book titles
 def view_unread(db)
-    puts "------------------------------" #for easier readability
+    puts "----------------------------------------" #for easier readability
     puts "UNREAD TITLES:\n\n"
     all = db.execute("SELECT * FROM books WHERE read = 'false'")
     all.each do |book|
@@ -74,7 +75,7 @@ end
 
 # method to view all books:
 def view_all(db)
-    puts "------------------------------" #for easier readability
+    puts "----------------------------------------" #for easier readability
     puts "BOOK LOG:\n\n"
     all = db.execute("SELECT * FROM books")
     all.each do |book|
@@ -117,12 +118,11 @@ def update_comment(db, choice, change)
 end
 
 # User interface:
-
 puts "Welcome to your book log!"
 
 input = ""
 until input == "done"
-puts "------------------------------" #for easier readability
+puts "----------------------------------------" #for easier readability
 puts "  To add a new book, enter 'add',"
 puts "  To update an existing book, enter 'update',"
 puts "  To view book details, enter 'view',"
@@ -157,15 +157,15 @@ input = gets.chomp
     puts "  'title', 'author', 'read status', 'rating', or 'comment':"
     input = gets.chomp
       if input == "title"
-        puts "What should it be changed to?"
+        puts "What is the correct title?"
         change = gets.chomp
         update_title(db, choice, change)
       elsif input == "author"
-        puts "What should it be changed to?"
+        puts "What is the correct author?"
         change = gets.chomp
         update_author(db, choice, change)
       elsif input == "read status"
-        puts "What should it be changed to?"
+        puts "Have you read this book yet?"
         change = gets.chomp
           if change == "Yes" || change == "yes" || change == "y"
             change = 'true'
@@ -173,17 +173,16 @@ input = gets.chomp
             change = 'false'
           end
         update_read_status(db, choice, change)
-
       elsif input == "rating"
-        puts "What should it be changed to?"
+        puts "What is the correct rating?"
         change = gets.chomp
         update_rating(db, choice, change)
       elsif input == "comment"
-        puts "What should it be changed to?"
+        puts "What should the new comment be?"
         change = gets.chomp
         update_comment(db, choice, change)
       else
-        puts "Please try again!"
+        puts "Oops! Please try again."
         redo
       end
 
@@ -195,7 +194,6 @@ input = gets.chomp
     redo
 
   end
-
 end
 
 puts "Happy reading!"
