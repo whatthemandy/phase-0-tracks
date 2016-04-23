@@ -68,7 +68,7 @@ def view_unread(db)
     puts "----------------------------------------" #for easier readability
     puts "UNREAD TITLES:"
     puts "Here are some great books you've been meaning to read!\n\n"
-    all = db.execute("SELECT * FROM books WHERE read = 'false'")
+    all = db.execute("SELECT * FROM books WHERE read = 'false' ORDER BY title")
     all.each do |book|
       puts "Title: #{book['title']}"
     end
@@ -79,7 +79,7 @@ def view_all(db)
     puts "----------------------------------------" #for easier readability
     puts "BOOK LOG:"
     puts "So many beautiful books!\n\n"
-    all = db.execute("SELECT * FROM books")
+    all = db.execute("SELECT * FROM books ORDER BY title")
     all.each do |book|
       puts "Title: #{book['title']}"
       puts "Author: #{book['author']}"
