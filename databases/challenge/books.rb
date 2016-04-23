@@ -42,6 +42,10 @@ def add(db)
   puts "Please enter rating (1-5, or 0 if not yet read):"
   rating = gets.chomp
   rating = rating.to_i
+  if rating == 0
+    rating = nil
+  else
+  end
 
   puts "Please enter any comments about book:"
   comment = gets.chomp
@@ -152,7 +156,7 @@ input = gets.chomp
     add(db)
 
   elsif input == "view"
-    puts "Enter specific book title for one book's details, 'unread' to see all unread titles, 'all' to view details for all books (sorted by title), or 'rating' to see details of all books (sorted by rating):"
+    puts "Enter specific book title for one book's details, 'unread' to see all unread titles, 'rating' to see details of all read books (sorted by rating), or 'all' to view details of all books (sorted by title):"
     choice = gets.chomp
       if choice == "all"
         view_all(db)
@@ -193,8 +197,22 @@ input = gets.chomp
           end
         update_read_status(db, choice, correction)
       elsif input == "rating"
+        # also update read-status in case rating is changing from zero
+        puts "Have you read this book yet?"
+        correction = gets.chomp
+          if correction == "Yes" || correction == "yes" || correction == "y"
+            correction = 'true'
+          else
+            correction = 'false'
+          end
+        update_read_status(db, choice, correction)
+
         puts "What is the correct rating?"
         correction = gets.chomp
+          if correction == 0
+            correction = nil #I don't think this works
+          else
+          end
         update_rating(db, choice, correction)
       elsif input == "comment"
         puts "What should the new comment be?"
