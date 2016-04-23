@@ -32,8 +32,7 @@ def add(db)
   author = gets.chomp
 
   puts "Have you read this book yet? (yes/no)"
-  read = gets.chomp
-  read = read.capitalize
+  input = gets.chomp
     if input == "Yes" || input == "yes" || input == "y"
       read = 'true'
     else
@@ -61,6 +60,15 @@ def view_one(db, choice)
       puts "Read Yet?: #{info['read']}"
       puts "Rating: #{info['rating']}"
       puts "Comments: #{info['comment']}\n\n"
+    end
+end
+
+def view_unread(db)
+    puts "------------------------------" #for easier readability
+    puts "UNREAD TITLES:\n\n"
+    all = db.execute("SELECT * FROM books WHERE read = 'false'")
+    all.each do |book|
+      puts "Title: #{book['title']}"
     end
 end
 
@@ -127,10 +135,12 @@ input = gets.chomp
     add(db)
 
   elsif input == "view"
-    puts "Enter book title or 'all' to view all books:"
+    puts "Enter specific book title for one book's details, 'unread' to see all unread titles, or 'all' to view details for all books:"
     choice = gets.chomp
       if choice == "all"
         view_all(db)
+      elsif choice = "unread"
+        view_unread(db)
       else
         view_one(db, choice)
       end
@@ -157,7 +167,13 @@ input = gets.chomp
       elsif input == "read status"
         puts "What should it be changed to?"
         change = gets.chomp
+          if change == "Yes" || change == "yes" || change == "y"
+            change = 'true'
+          else
+            change = 'false'
+          end
         update_read_status(db, choice, change)
+
       elsif input == "rating"
         puts "What should it be changed to?"
         change = gets.chomp
