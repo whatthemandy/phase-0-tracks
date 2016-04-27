@@ -3,7 +3,7 @@ console.log("It works!")
 
 // add border to image element
 function addRedBorder() {
-  var elements = document.getElementById("number_one_cat");
+  var elements = document.getElementById("kitties");
   elements.style.border = "3px solid red"
   }
 
