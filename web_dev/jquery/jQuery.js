@@ -14,4 +14,11 @@ $(document).ready(function(){
     img.animate({left:"0px"}, "slow");
   });
 
+  // double-click the word "me" to get a pop-up
+  // remove paragraph after event
+  $("em").dblclick(function(){
+    alert("You will become very rich!");
+    $("#remove").remove();
+  });
+
 });
