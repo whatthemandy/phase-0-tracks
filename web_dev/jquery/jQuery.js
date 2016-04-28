@@ -39,5 +39,13 @@ $(document).ready(function(){
     $("#2").html("<b>Because?</b>");
  });
 
+  // mouse-over the footer for a pop-up message (really annoying)
+  // also add (append) some new text after the event happens
+  // and add some css (change background color)
+  $("#annoying").mouseenter(function(){
+    alert("BEEEEEEEEEEEEEEEEP!");
+    $("footer").append("<br><em>Told you so.</em>");
+    $("footer").css("background-color", "pink");
+  });
 
 });
