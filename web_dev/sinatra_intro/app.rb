@@ -93,3 +93,13 @@ get '/student/:campus' do
   "<h1>#{params[:campus]} Students:</h1>#{result}"
 end
 # localhost:9393/student/SD
+
+# Research:
+# 1. Is Sinatra the only web app library in Ruby? What are some others?
+## Ruby on Rails, Merb, Nitro, and Camping
+
+# 2. Are SQLite and the sqlite3 gem your only options for using a database with Sinatra? What are some others?
+## Mongo, MySQL, ActiveRecord
+
+# 3. What is meant by the term web stack?
+## "A Web stack is the collection of software required for Web development. At a minimum, a Web stack contains an operating system (OS), a programming language, database software and a Web server." (http://whatis.techtarget.com/definition/Web-stack)
