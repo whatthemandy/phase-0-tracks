@@ -1,6 +1,8 @@
 $(document).ready(function(){
-  $("button").click(function(){
-    $("#2").hide();
-  });
-});
 
+  //click button to make paragraph disappear/reappear slowly
+  $("#toggle").click(function(){
+    $("#gibberish").toggle(2000);
+  });
+
+});
