@@ -26,4 +26,18 @@ $(document).ready(function(){
    alert("Name: " + $("#test").val());
  });
 
+ // get link (img source attribute) when image is double-clicked
+ $("img").dblclick(function(){
+    alert($("img").attr("src"));
+ });
+
+ // SET content on clicks - text and html
+ $("#1").click(function(){
+    $("#1").text("I have no idea!");
+ });
+ $("#2").click(function(){
+    $("#2").html("<b>Because?</b>");
+ });
+
+
 });
