@@ -21,4 +21,9 @@ $(document).ready(function(){
     $("#remove").remove();
   });
 
+ // GET text content a la Rihanna
+ $("#name").click(function(){
+   alert("Name: " + $("#test").val());
+ });
+
 });
