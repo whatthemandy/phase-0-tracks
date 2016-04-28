@@ -31,3 +31,16 @@ get '/san_fran' do
   @students = db.execute("SELECT * FROM students WHERE campus='SF'")
   erb :san_fran
 end
+
+# add form to get new edited student info
+get '/students/edit' do
+  erb :edit_student
+end
+
+# get info from edit form and update student info
+post '/student_edit' do
+  db.execute("UPDATE students SET name=?, campus=?, age=? WHERE name=?",
+             [params['new_name'], params['campus'], params['age'].to_i, params['current_name']])
+  redirect '/'
+end
+
